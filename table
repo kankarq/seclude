@@ -38,7 +38,7 @@ getgenv().Sentinal = {
 	['Binds'] = {
 		['Macro'] = 'X',
 		['NoClip'] = '-',
-        ['Unlock'] = 'Z', --[[ Only works with double bind ]]
+        ['Unlock'] = 'Z', -- Double Bind only --
         ['AntiAim'] = 'Y',
         ['AimAssist'] = 'C',
 		["Panic"] = 'L',
@@ -46,26 +46,26 @@ getgenv().Sentinal = {
         ['Specific ESP'] = 'T',	
 		['Unload Cheat'] = 'R',
         ['Silent Toggle'] = 'P',
-        ['AimAssist Toggle'] = 'B' -- [[ This is to completely disable the aim assist till the button is clicked again ]]
+        ['AimAssist Toggle'] = 'B' -- fully disabled aim assist until bind is used again --
 	},
 	['Silent'] = {
 		['Enabled'] = true,
-		['Mode'] = 'Regular', --[[ Target / Regular ]]--
-		['HitScan'] = 'On Shot', --[[ On Shot / Automatic, Automatic is very performance heavy ]]--
-		['FOVType'] = 'CircleFOV', --[[ BoxFOV / CircleFOV ]]--
-		['Default FOV'] = 400, --[[ Applies to universal too ]]
+		['Mode'] = 'Regular', -- Target, Regular --
+		['HitScan'] = 'On Shot', 
+		['FOVType'] = 'CircleFOV', -- BoxFOV, CircleFOV --
+		['Default FOV'] = 400, 
         ['OverrideYAxis'] = 'None',
 		['HitChance'] = {
 			['HitChance'] = 300,
-			['Miss Chance'] = 0.2, -- [[ Counts by decimals, eg: 0.1 = 10% ]]
+			['Miss Chance'] = 0.2, -- decimals only --
 		},
 		['Prediction'] = 0.12155,
 		['Draw Hit'] = false, 
 		['Prediction Adjustment'] = 1,
 		['3D Adjustment'] = { false, Vector3.new(1, 0, 1) },
 		['Hit Location'] = {
-			['Hit Target'] = 'Nearest Point', --[[ Nearest Point / Center Point /, Nearest Part, R15 ]]--
-			['Point Scale'] = 'Scalar', --[[ Legacy, Dynamic, Static, Scalar, Full ]]
+			['Hit Target'] = 'Nearest Point', -- Nearest Point , Center Point , (Nearest Part, R15) --
+			['Point Scale'] = 'Scalar', -- Legacy, Dynamic, Static, Scalar, Full --
 			['Max Nearest Point'] = 0,
 			['Ignore Blank Points'] = false,
 			['R15'] = {'Head'}
@@ -73,7 +73,7 @@ getgenv().Sentinal = {
 	},
 	['Aiming'] = {
 		['Enabled'] = true,
-		['Mode'] = 'Target', --[[ Target / Regular ]]--
+		['Mode'] = 'Target', -- Target, Regular --
 		['Radius'] = 100,
 		['Stickiness'] = 1,
 		['Prediction'] = 0.129331234,
@@ -81,17 +81,17 @@ getgenv().Sentinal = {
 		['Readjustment'] = false,
         ['OverrideYAxis'] = 'None',
 		['3D Adjustment'] = { true, Vector3.new(1, 1, 1) },
-		['Legacy Smoothing'] = false, --[[ Whole number smoothing (30, 50 etc), Disable to use decimals ]]--
+		['Legacy Smoothing'] = false, -- whole numbers smoothing --
 		['Hit Location'] = {
-			['Hit Target'] = 'Nearest Point', --[[ Nearest Point / Center Point /, Nearest Part, R15 ]]--
-			['Point Scale'] = 'Scalar', --[[ Legacy, Dynamic, Static, Scalar, Full ]]
+			['Hit Target'] = 'Nearest Point', -- Nearest Point , Center Point , (Nearest Part, R15) --
+			['Point Scale'] = 'Scalar', -- Legacy, Dynamic, Static, Scalar, Full --
 			['Max Nearest Point'] = 19,
 			['Ignore Blank Points'] = true,
 			['R15'] = {'Head'} 
 		},
 		['HitChance'] = {
 			['HitChance'] = 100,
-			['Miss Chance'] = 0, -- [[ Counts by decimals, eg: 0.1 = 10% ]]
+			['Miss Chance'] = 0, -- decimals only --
 		},
 		['Smoothing'] = {
 			['Smoothing'] = 0.042,
@@ -116,16 +116,16 @@ getgenv().Sentinal = {
 		['Prediction'] = 0.125,
 		['FOVType'] = 'CircleFOV',
 		['Activation'] = {
-			['Mode'] = 'Keybind', --[[ Mouse / Keybind ]]--
-			['Type'] = 'Toggle', --[[ Toggle / Hold ]]--
+			['Mode'] = 'Keybind', -- Mouse, Keybind --
+			['Type'] = 'Toggle', -- Toggle, Hold --
 		},
-		['Silent Link'] = false, --[[ Adjusts the triggerbot depending on Silent Aim ]]--
+		['Silent Link'] = false, -- Adjusts triggerbot to link with silent --
 	},
 	['Helpers'] = {
 		['DisableYAxis'] = false,
 		['Bullet Curvation'] = {	
 			['Enabled'] = true,
-			['Formula'] = '3D', --[[ 3D, 2D ]]--
+			['Formula'] = '3D', -- 2D, 3D --
 			['2D'] = {
 				['X'] = 500,
 				['Y'] = 360,
@@ -133,17 +133,17 @@ getgenv().Sentinal = {
 			['3D'] = {
 				['Angle'] = 5,
 			},
-			['Logger'] = false --[[ Print information ]]--
+			['Logger'] = false -- info --
 		}
 	},
 	['Visuals'] = {
-		['Load Check'] = false, --[[ Hide visuals on start ]]--
+		['Load Check'] = false, -- hide visuals at beginning --
 		['Global ESP'] = {
 			['Enabled'] = false,
 			['Team Check'] = true,
 			['Max Draw Distance'] = math.huge,
 			['Text Size'] = 10,
-			['Text Font'] = 'Smallest Pixel', --[[ Smallest Pixel, Upheaval, ProggyClean ]]
+			['Text Font'] = 'Smallest Pixel', -- Smallest Pixel, Upheaval, ProggyClean --
 			['Fade Effect'] = {
 				['On Distance'] = true,
 			},
@@ -171,7 +171,7 @@ getgenv().Sentinal = {
 				},
 				['Boxes'] = {
 					['Enabled'] = false,
-					['Box Type'] = 'Bounding Box', -- Corner, Bounding Box
+					['Box Type'] = 'Bounding Box', -- Corner, Bounding Box --
 					['Bounding Box'] = {
 						['Animate'] = true,
 						['Animate Speed'] = 360,
@@ -265,13 +265,13 @@ getgenv().Sentinal = {
 		['AntiFling'] = true,
 		['AntiAim'] = {
 			['Enabled'] = true,
-			['Type'] = 'Prediction Disabler', --[[ Sides, Prediction Disabler ]]--
+			['Type'] = 'Prediction Disabler', -- Sides, Prediction Disabler --
 		},	
 		['Macro'] = {
 			['Enabled'] = true,
 			['Gun Macro'] = {
 				['Mode'] = 'Toggle',
-				['Type'] = 'ThirdPerson', --[[ ThirdPerson, FirstPerson ]]--
+				['Type'] = 'ThirdPerson', -- ThirdPerson, FirstPerson --
 			},
 			['NoClip Macro'] = {
 				['Enabled'] = false,
