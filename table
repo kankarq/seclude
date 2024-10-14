@@ -1,3 +1,6 @@
+script_key="Key";
+getgenv().script_key = script_key;
+
 getgenv().Sentinal = {
 	["System"] = {
         Notifications = true, 
