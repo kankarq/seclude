@@ -280,3 +280,5 @@ getgenv().Sentinal = {
 		},
 	}
 }
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/812effcf7134678f2cc95c405390f986.lua"))()
