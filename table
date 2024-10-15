@@ -1,4 +1,4 @@
-script_key="Key";
+script_key="KEY_HERE";
 getgenv().script_key = script_key;
 
 getgenv().Sentinal = {
@@ -25,7 +25,7 @@ getgenv().Sentinal = {
 		}
 	},
     ["Universal"] = {
-		Technique = 'Raycast',
+		Technique = 'Raycast', --[[ Raycast, FindPartOnRayWithIgnoreList, FindPartOnRayWithWhitelist, FindPartOnRay -- 
 		Activation = false, 
 		Predective = false,
 		Prediction = 0.1,
@@ -179,10 +179,10 @@ getgenv().Sentinal = {
 						['Animate'] = true,
 						['Animate Speed'] = 360,
 						['Gradient'] = true, 
-						['Alpha Color'] = Color3.fromRGB(205, 160, 227), 
+						['Alpha Color'] = Color3.fromRGB(165, 240, 255), 
 						['Depth Color'] = Color3.fromRGB(204, 177, 188), 
 						['Filled Color Scheme'] = true, 
-						['Fill Color'] = Color3.fromRGB(204, 244, 215), 
+						['Fill Color'] = Color3.fromRGB(165, 240, 255), 
 						['Fill Glow'] = Color3.fromRGB(226, 191, 188),
 						['Filled'] = {
 							['Enabled'] = true,
@@ -196,7 +196,7 @@ getgenv().Sentinal = {
 				},
 			},
 		},
-		['Specific ESP'] = { --[[ Raid Awareness ]]
+		['Specific ESP'] = { --[[ raids ]]--
 			['Visible'] = false,
 			['EnemyColor'] = Color3.fromRGB(202, 219, 247),
 			['AllyColor'] = Color3.fromRGB(32, 209, 29),
@@ -268,13 +268,13 @@ getgenv().Sentinal = {
 		['AntiFling'] = true,
 		['AntiAim'] = {
 			['Enabled'] = true,
-			['Type'] = 'Prediction Disabler', -- Sides, Prediction Disabler --
+			['Type'] = 'Prediction Disabler', -- Sides, Prediction Disabler ]]--
 		},	
 		['Macro'] = {
 			['Enabled'] = true,
 			['Gun Macro'] = {
 				['Mode'] = 'Toggle',
-				['Type'] = 'ThirdPerson', -- ThirdPerson, FirstPerson --
+				['Type'] = 'ThirdPerson', -- ThirdPerson, FirstPerson ]]--
 			},
 			['NoClip Macro'] = {
 				['Enabled'] = false,
