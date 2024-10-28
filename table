@@ -165,12 +165,12 @@ getgenv().Seclude = {
 					['Text'] = true, 
 					['Position'] = 'Left', --[[ Left, Right ]]
 					['Health Based'] = false, 
-					['Text Color'] = Color3.fromRGB(195, 193, 239), 
+					['Text Color'] = Color3.fromRGB(178, 209, 255), 
 					['Width'] = 2,
 					['Gradient'] = true, 
 					['Alpha Color'] = Color3.fromRGB(152, 194, 255), 
 					['Depth Color'] = Color3.fromRGB(152, 194, 255), 
-					['Color Keypoint'] = Color3.fromRGB(202, 219, 247), 
+					['Color Keypoint'] = Color3.fromRGB(179, 210, 255), 
 				},
 				['Boxes'] = {
 					['Enabled'] = true,
