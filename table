@@ -3,45 +3,45 @@ getgenv().script_key = script_key;
 
 getgenv().Seclude = {
 	["System"] = {
-        Notifications = false, --[[ dont turn on unless you want a notification on startup ]]--
+        ['Notifications'] = true, --[[ enable if you want notifications on startup ]]
         ["Load"] = {
             ["FPS"] = {
-                AimAssist = 50,
-                ETC = 40
+                ['AimAssist'] = 50,
+                ['ETC'] = 40
             },
 		},
 		["Protection"] = {
-			UnPack = {
-				Activation = false,
+			['UnPack'] = {
+				['Activation'] = false,
 			},
 			["Panic"] = {
-				Activation = false,
-				Deactivate = {'Visuals'}
+				['Activation'] = false,
+				['Deactivate'] = {'Visuals'}
 			},
 		},
 		["Global"] = {
-			FreeMode = true, 
-			WallCheck = true, 
+			['FFA'] = true, 
+			['WallCheck'] = true, 
 		}
 	},
     ["Universal"] = {
-		Technique = 'Raycast', --[[ Raycast, FindPartOnRayWithIgnoreList, FindPartOnRayWithWhitelist, FindPartOnRay ]]--
-		Activation = false, 
-		Predective = false,
-		Prediction = 0.1,
-		UniversalWallChecks = 'Head', 
-		HitParts = {'Head', 'HumanoidRootPart'},
-		HitPart = 'Head'
+		['Technique'] = 'Raycast',
+		['Activation'] = false, 
+		['Predictive'] = false,
+		['Prediction'] = 0.1,
+		['UniversalWallChecks'] = 'Head', 
+		['HitParts'] = {'Head', 'HumanoidRootPart'},
+		['HitPart'] = 'Head'
 	},
 	["Distances"] = { 
-	  Close = 20,
-	  Mid = 50,
-	  Far = math.huge,
+	  ['Close'] = 20,
+	  ['Mid'] = 50,
+	  ['Far'] = math.huge,
     },
 	['Binds'] = {
 		['Macro'] = 'X',
 		['NoClip'] = '-',
-        ['Unlock'] = 'Z', --[[ Double Bind only ]]--
+        ['Unlock'] = 'Z', --[[ Only works with double bind ]]
         ['AntiAim'] = 'Y',
         ['AimAssist'] = 'C',
 		["Panic"] = 'L',
@@ -49,26 +49,26 @@ getgenv().Seclude = {
         ['Specific ESP'] = 'T',	
 		['Unload Cheat'] = 'R',
         ['Silent Toggle'] = 'P',
-        ['AimAssist Toggle'] = 'B' --[[ fully disables aim assist until re-toggled ]]--
+        ['AimAssist Toggle'] = 'B' -- [[ Disables aimassist until bind is used again. ]]
 	},
 	['Silent'] = {
 		['Enabled'] = true,
-		['Mode'] = 'Regular', --[[ Target, Regular ]]--
-		['HitScan'] = 'On Shot', 
-		['FOVType'] = 'CircleFOV', --[[ BoxFOV, CircleFOV ]]--
-		['Default FOV'] = 400, 
+		['Mode'] = 'Regular', --[[ Target , Regular ]]
+		['HitScan'] = 'On Shot', --[[ On Shot , Automatic, Automatic is very performance heavy ]]
+		['FOVType'] = 'CircleFOV', --[[ BoxFOV , CircleFOV ]]
+		['Default FOV'] = 400, --[[ Additionally applies to universal ]]
         ['OverrideYAxis'] = 'None',
 		['HitChance'] = {
 			['HitChance'] = 300,
-			['Miss Chance'] = 0.2, --[[ decimals only ]]--
+			['Miss Chance'] = 0.2, -- [[ Uses only decimals ]]
 		},
 		['Prediction'] = 0.12155,
 		['Draw Hit'] = false, 
 		['Prediction Adjustment'] = 1,
 		['3D Adjustment'] = { false, Vector3.new(1, 0, 1) },
 		['Hit Location'] = {
-			['Hit Target'] = 'Nearest Point', --[[ Nearest Point , Center Point , (Nearest Part, R15) ]]--
-			['Point Scale'] = 'Scalar', --[[ Legacy, Dynamic, Static, Scalar, Full ]]--
+			['Hit Target'] = 'Nearest Point', --[[ Nearest Point , Center Point , Nearest Part/R15 ]]--
+			['Point Scale'] = 'Scalar', --[[ Legacy, Dynamic, Static, Scalar, Full ]]
 			['Max Nearest Point'] = 0,
 			['Ignore Blank Points'] = false,
 			['R15'] = {'Head'}
@@ -76,7 +76,7 @@ getgenv().Seclude = {
 	},
 	['Aiming'] = {
 		['Enabled'] = true,
-		['Mode'] = 'Target', --[[ Target, Regular ]]--
+		['Mode'] = 'Target', --[[ Target , Regular ]]--
 		['Radius'] = 100,
 		['Stickiness'] = 1,
 		['Prediction'] = 0.129331234,
@@ -84,17 +84,17 @@ getgenv().Seclude = {
 		['Readjustment'] = false,
         ['OverrideYAxis'] = 'None',
 		['3D Adjustment'] = { true, Vector3.new(1, 1, 1) },
-		['Legacy Smoothing'] = false, --[[ whole number smoothing ]]--
+		['Legacy Smoothing'] = false, --[[ strictly whole number smoothing, to use decimals disable this. ]]--
 		['Hit Location'] = {
-			['Hit Target'] = 'Nearest Point', --[[ Nearest Point , Center Point , (Nearest Part, R15) ]]--
-			['Point Scale'] = 'Scalar', --[[ Legacy, Dynamic, Static, Scalar, Full ]]--
+			['Hit Target'] = 'Nearest Point', --[[ Nearest Point , Center Point , Nearest Part/R15 ]]--
+			['Point Scale'] = 'Scalar', --[[ Legacy, Dynamic, Static, Scalar, Full ]]
 			['Max Nearest Point'] = 19,
 			['Ignore Blank Points'] = true,
 			['R15'] = {'Head'} 
 		},
 		['HitChance'] = {
 			['HitChance'] = 100,
-			['Miss Chance'] = 0, --[[ decimals only, e.g 0.1, 0.2 ]]--
+			['Miss Chance'] = 0, --[[ Counts by decimals ]]--
 		},
 		['Smoothing'] = {
 			['Smoothing'] = 0.042,
@@ -110,7 +110,7 @@ getgenv().Seclude = {
 		},
 	},
 	['Triggerbot'] = {
-		['Enabled'] = true,
+		['Enabled'] = false,
 		['Default FOV'] = 100,
 		['Interval'] = 1,
 		['Tolerance'] = 1,
@@ -119,16 +119,16 @@ getgenv().Seclude = {
 		['Prediction'] = 0.125,
 		['FOVType'] = 'CircleFOV',
 		['Activation'] = {
-			['Mode'] = 'Keybind', --[[ Mouse, Keybind ]]--
-			['Type'] = 'Toggle', --[[ Toggle, Hold ]]--
+			['Mode'] = 'Keybind', --[[ Mouse , Keybind ]]--
+			['Type'] = 'Toggle', --[[ Toggle , Hold ]]--
 		},
-		['Silent Link'] = false, --[[ Adjusts triggerbot to link with silent settings (radius, ect) ]]--
+		['Silent Link'] = false, --[[ Links the silent aim to the triggerbot ]]--
 	},
 	['Helpers'] = {
 		['DisableYAxis'] = false,
 		['Bullet Curvation'] = {	
 			['Enabled'] = true,
-			['Formula'] = '3D', --[[ 2D, 3D ]]--
+			['Formula'] = '3D', --[[ 3D, 2D ]]--
 			['2D'] = {
 				['X'] = 500,
 				['Y'] = 360,
@@ -136,29 +136,29 @@ getgenv().Seclude = {
 			['3D'] = {
 				['Angle'] = 5,
 			},
-			['Logger'] = false --[[ enter value as true if you want info to show in console ]]--
+			['Logger'] = false --[[ Logs all information to the Dev console ]]--
 		}
 	},
 	['Visuals'] = {
-		['Load Check'] = false, --[[ hide visuals at beginning ]]--
+		['Load Check'] = false, --[[ Hides ESP and other visuals on script startup ]]--
 		['Global ESP'] = {
-			['Enabled'] = false,
+			['Enabled'] = true,
 			['Team Check'] = true,
 			['Max Draw Distance'] = math.huge,
 			['Text Size'] = 10,
-			['Text Font'] = 'Upheaval', --[[ Smallest Pixel, ProggyClean, Upheaval ]]--
+			['Text Font'] = 'ProggyClean', --[[ Smallest Pixel , Upheaval , ProggyClean ]]
 			['Fade Effect'] = {
 				['On Distance'] = true,
 			},
 			['Drawing'] = {
 				['Names'] = {
 					['Enabled'] = true,
-					['Color'] = Color3.fromRGB(227, 180, 206),
+					['Color'] = Color3.fromRGB(124, 178, 255),
 				},
 				['Distance'] = {
 					['Enabled'] = true, 
 					['Docked'] = false,
-					['Color'] = Color3.fromRGB(175, 194, 223),
+					['Color'] = Color3.fromRGB(124, 178, 255),
 				},
 				['Health'] = {
 					['Enabled'] = true,  
@@ -166,28 +166,28 @@ getgenv().Seclude = {
 					['Position'] = 'Left', --[[ Left, Right ]]
 					['Health Based'] = false, 
 					['Text Color'] = Color3.fromRGB(195, 193, 239), 
-					['Width'] = 1.5,
+					['Width'] = 2,
 					['Gradient'] = true, 
-					['Alpha Color'] = Color3.fromRGB(189, 185, 235), 
-					['Depth Color'] = Color3.fromRGB(239, 193, 193), 
+					['Alpha Color'] = Color3.fromRGB(152, 194, 255), 
+					['Depth Color'] = Color3.fromRGB(152, 194, 255), 
 					['Color Keypoint'] = Color3.fromRGB(202, 219, 247), 
 				},
 				['Boxes'] = {
 					['Enabled'] = true,
-					['Box Type'] = 'Bounding Box', -- Corner, Bounding Box --
+					['Box Type'] = 'Bounding Box', --[ Corner, Bounding Box ]--
 					['Bounding Box'] = {
 						['Animate'] = true,
 						['Animate Speed'] = 360,
 						['Gradient'] = true, 
-						['Alpha Color'] = Color3.fromRGB(165, 240, 255), 
-						['Depth Color'] = Color3.fromRGB(204, 177, 188), 
+						['Alpha Color'] = Color3.fromRGB(46, 132, 255), 
+						['Depth Color'] = Color3.fromRGB(124, 178, 255), 
 						['Filled Color Scheme'] = true, 
-						['Fill Color'] = Color3.fromRGB(59, 139, 255), 
+						['Fill Color'] = Color3.fromRGB(152, 194, 255), 
 						['Fill Glow'] = Color3.fromRGB(226, 191, 188),
 						['Filled'] = {
 							['Enabled'] = true,
 							['Transparency'] = 0.75,
-							['Color'] = Color3.fromRGB(59, 139, 255), 
+							['Color'] = Color3.fromRGB(152, 194, 255), 
 						},
 					},
 					['Corner'] = {
@@ -196,7 +196,7 @@ getgenv().Seclude = {
 				},
 			},
 		},
-		['Specific ESP'] = { --[[ raids ]]--
+		['Specific ESP'] = { --[[ Script Raid Awwareness ]]--
 			['Visible'] = false,
 			['EnemyColor'] = Color3.fromRGB(202, 219, 247),
 			['AllyColor'] = Color3.fromRGB(32, 209, 29),
@@ -267,14 +267,14 @@ getgenv().Seclude = {
 		['RemoveSeats'] = true,
 		['AntiFling'] = true,
 		['AntiAim'] = {
-			['Enabled'] = true,
-			['Type'] = 'Prediction Disabler', -- Sides, Prediction Disabler ]]--
+			['Enabled'] = false,
+			['Type'] = 'Prediction Disabler', --[[ Sides, Prediction Disabler ]]--
 		},	
 		['Macro'] = {
 			['Enabled'] = true,
 			['Gun Macro'] = {
 				['Mode'] = 'Toggle',
-				['Type'] = 'ThirdPerson', -- ThirdPerson, FirstPerson ]]--
+				['Type'] = 'ThirdPerson', --[[ ThirdPerson, FirstPerson ]]--
 			},
 			['NoClip Macro'] = {
 				['Enabled'] = false,
@@ -284,4 +284,4 @@ getgenv().Seclude = {
 	}
 }
 
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/812effcf7134678f2cc95c405390f986.lua"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8e422e932e376aa0ea2f007bcbfa034f.lua"))()
