@@ -3,7 +3,7 @@ getgenv().script_key = script_key;
 
 getgenv().Seclude = {
 	["System"] = {
-        ['Notifications'] = true, --[[ enable if you want notifications on startup ]]
+        ['Notifications'] = false, --[[ enable if you want notifications on startup ]]
         ["Load"] = {
             ["FPS"] = {
                 ['AimAssist'] = 50,
@@ -142,7 +142,7 @@ getgenv().Seclude = {
 	['Visuals'] = {
 		['Load Check'] = false, --[[ Hides ESP and other visuals on script startup ]]--
 		['Global ESP'] = {
-			['Enabled'] = true,
+			['Enabled'] = false,
 			['Team Check'] = true,
 			['Max Draw Distance'] = math.huge,
 			['Text Size'] = 10,
