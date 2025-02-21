@@ -1,0 +1,2263 @@
+getgenv().Ordium = {
+    Luarmor = { Key = "" },
+
+    Startup = { 
+        Hash = 0xAB0,
+        Intro = false, 
+        Delay = 0.5
+    },
+    --
+    Logic = {
+        ['Panic'] = { false, "I" },
+        ['Hide Visuals'] = { false, "E" },
+        ['Threads'] = {
+            ['Main'] = "RenderStepped",
+            ['Other'] = "RenderStepped"
+        }
+    }, --
+    ["Resolver"] = { 
+        ['Enabled'] = false, -- regular resolver detection
+        ['Force'] = false,  -- if u always want the resolver on
+        ['On Key'] = { false, "V"}, -- if u want to turn the resolver on with a key (manually)
+        ['Show Force Label'] = { false, Color3.fromRGB(214, 184, 184) } -- shows if the resolver is on with on key
+    },
+    -- 
+    ['Universal'] = {
+        ["Enabled"] = false,  
+        ["TeamCheck"] = false,
+        ["Predict"] = true,
+        ["HitChance"] = 300,
+        ["Prediction"] = { 0.05, 0.11, 0.06 }, --[[ X, Y, Z ]]--
+        ["AimBone"] = {"Head", "Torso", "Stomach"}, --[[ Head, Torso, Stomach ]]
+        ["UseNearestAimBone"] = true,
+        ["Box"] = { 
+            ["Enabled"] = false, 
+            ["Color"] = Color3.fromRGB(220, 198, 198),
+            ["Size"] = { 
+                ["X"] = 3, 
+                ["Y"] = 4
+            }, 
+        },
+        ["Chams"] = { 
+            ["Enabled"] = false, 
+            ["Color"] = Color3.fromRGB(181, 209, 228), 
+            ["Outline"] = Color3.fromRGB(0, 0, 0), 
+            ["Transparency"] = 0.1
+        }
+    },
+    --
+    ["Silent Aim"] = {
+        ['Enabled'] = { true, ['Toggle Key'] = { false, "V"} },
+        ['Sticky Mode'] = false,
+        ['Target Mode'] = "FOV", -- Target, FOV
+        ['Silent Mode'] = "Safe", -- Safe, Aggressive
+        ['Target Sync'] = true, -- having this on will make your silent aim target your aimbot target if you're on target mode
+        ['Target Bind'] = "c",
+        ['Hit Mode'] = "Circle", -- Circle, Box
+        ['HitChance'] = 300,
+        ['AntiFloor'] = false,
+        ['HitParts'] = {
+            ['Hit Type'] = "Nearest Point", -- Nearest Point, Nearest Part, Blank for hitbones
+            ['Nearest Point Type'] = "Partial", -- Scalar, Generic, Absolute, Partial
+            ['HitBones'] = {"HumanoidRootPart"},
+            ['Scaling'] = {
+                ['Min'] = 2.9,
+                ['Max'] = 2.9,
+            }
+        },
+        ['Anti Curve'] = {
+            ['Enabled'] = false,
+            ['Mode'] = "3D", -- 2D, 3D
+            ['Angular Curve'] = 9.6,
+        },
+        ['Prediction'] = {
+            ['Automatic'] = true,
+            ['Ping Based'] = true,
+            ['Velocity Type'] = "Regular", -- Regular, Linear, Rot, Angular
+            --
+            ['Prediction'] = { 0.4225, 0.4225, 0.4225 },
+            --
+            ['Ping Ranges'] = {
+                ["20 - 30"] = { 0.11120, 0.11120, 0.11120 }, --[[ X,  Y,  Z ]]--
+                ["30 - 40"] = { 0.11614, 0.11614, 0.11614 }, --[[ X,  Y,  Z ]]--
+                ["40 - 50"] = { 0.12053, 0.12053, 0.12053 }, --[[ X,  Y,  Z ]]--
+                ["50 - 60"] = { 0.12053, 0.12053, 0.12053 }, --[[ X,  Y,  Z ]]--
+                ["60 - 70"] = { 0.12790, 0.12790, 0.12790 }, --[[ X,  Y,  Z ]]--
+                ["70 - 80"] = { 0.12793, 0.12793, 0.12793 }, --[[ X,  Y,  Z ]]--
+                ["80 - 90"] = { 0.129591, 0.129591, 0.129591 }, --[[ X,  Y,  Z ]]--
+                ["90 - 100"] = { 0.13070, 0.13070, 0.13070 }, --[[ X,  Y,  Z ]]--
+                ["100 - 110"] = { 0.13916, 0.13916, 0.13916 }, --[[ X,  Y,  Z ]]--
+                ["110 - 120"] = { 0.14664, 0.14664, 0.14664 }, --[[ X,  Y,  Z ]]--
+                ["120 - 130"] = { 0.14745, 0.14745, 0.14745 }, --[[ X,  Y,  Z ]]--
+                ["130 - 140"] = { 0.150, 0.150, 0.150 }, --[[ X,  Y,  Z ]]--
+                ["140 - 150"] = { 0.155, 0.155, 0.155 }, --[[ X,  Y,  Z ]]--
+                ["150 - 160"] = { 0.1545, 0.1545, 0.1545 }, --[[ X,  Y,  Z ]]--
+                ["160 - 170"] = { 0.1567, 0.1567, 0.1567 }, --[[ X,  Y,  Z ]]--
+                ["170 - 180"] = { 0.1672, 0.1672, 0.1672 }, --[[ X,  Y,  Z ]]--
+                ["180 - 190"] = { 0.1746, 0.1746, 0.1746 }, --[[ X,  Y,  Z ]]--
+                ["190 - 200"] = { 0.1746, 0.1746, 0.1746 }, --[[ X,  Y,  Z ]]--
+            }
+        },
+        ['Drawings'] = {
+            ['Field Of View'] = {
+                ['Visible'] = false,
+                ['Radius'] = 85,
+                ['Filled'] = false,
+                ['Thickness'] = 1,
+                ['Transparency'] = 0.25,
+                ['Color'] = Color3.fromRGB(255, 0, 0)
+            },
+            ['Box Field Of View'] = {
+                ['Visible'] = false,
+                ['Prediction'] = false,
+                ['Radius'] = {
+                    ['Width'] = 1, 
+                    ['Height'] = 2
+                },
+                ['Thickness'] = 3,
+                ['Transparency'] = 1,
+                ['Color'] = Color3.fromRGB(214, 205, 205),
+                ['Focused Color'] = Color3.fromRGB(255, 0, 0),
+            },
+            ['Tracer'] = { -- only works with box fov
+                ['Visible'] = false,
+                ['Thickness'] = 1,
+                ['Transparency'] = 1,
+                ['Color'] = Color3.fromRGB(255, 0, 0)
+            },
+        },
+        ['Conditions'] = {
+            ['Wall'] = true,
+            ['Friend'] = false,
+            ['Knocked'] = true,
+            ['Grabbed'] = true,
+            ['Forcefield'] = true,
+            ['Chat Focused'] = false,
+            ['Tool Equipped'] = false,
+        }
+    },
+    --
+    ["Aimbot"] = {
+        ['Enabled'] = { true, ['Toggle Key'] = { false, "J"} },
+        ['Sticky Mode'] = true,
+        ['Keybind'] = "C",
+        ['Deadzone'] = false,
+        ["AntiFloor"] = true,
+        ['MouseHold'] = {
+            ['Enabled'] = false,
+            ['Keybind'] = "MouseButton2" -- HOLD ONLY
+        },
+        ['Smoothness'] = {
+            ['X'] = 14,
+            ['Y'] = 14,
+            ["StickynessX"] = 5,
+            ["StickynessY"] = 5,
+        },
+        ['Readjustment'] = {
+            ['Enabled'] = false,
+            ['Readjustment'] = { 8, 11, 11 }
+        },
+        ['HitParts'] = {
+            ['HitBones'] = {"HumanoidRootPart"},
+            ['Scaling'] = { 
+                ['Min'] = 2.5,
+                ['Max'] = 2.5,
+            }
+        }, 
+        ['Prediction'] = {
+            ['Enabled'] = true,
+            ['Automatic'] = true,
+            ['Ping Based'] = false,
+            ['Velocity Type'] = "Regular", -- Regular, Linear, Rot, Angular
+            --
+            ['Prediction'] =  { 0.4225, 0.4225, 0.4225 },
+            --
+            ['Ping Ranges'] = {
+                ["20 - 30"] = { 0.11120, 0.11120, 0.11120 }, --[[ X,  Y,  Z ]]--
+                ["30 - 40"] = { 0.11614, 0.11614, 0.11614 }, --[[ X,  Y,  Z ]]--
+                ["40 - 50"] = { 0.12053, 0.12053, 0.12053 }, --[[ X,  Y,  Z ]]--
+                ["50 - 60"] = { 0.12053, 0.12053, 0.12053 }, --[[ X,  Y,  Z ]]--
+                ["60 - 70"] = { 0.12790, 0.12790, 0.12790 }, --[[ X,  Y,  Z ]]--
+                ["70 - 80"] = { 0.12793, 0.12793, 0.12793 }, --[[ X,  Y,  Z ]]--
+                ["80 - 90"] = { 0.129591, 0.129591, 0.129591 }, --[[ X,  Y,  Z ]]--
+                ["90 - 100"] = { 0.13070, 0.13070, 0.13070 }, --[[ X,  Y,  Z ]]--
+                ["100 - 110"] = { 0.13916, 0.13916, 0.13916 }, --[[ X,  Y,  Z ]]--
+                ["110 - 120"] = { 0.14664, 0.14664, 0.14664 }, --[[ X,  Y,  Z ]]--
+                ["120 - 130"] = { 0.14745, 0.14745, 0.14745 }, --[[ X,  Y,  Z ]]--
+                ["130 - 140"] = { 0.150, 0.150, 0.150 }, --[[ X,  Y,  Z ]]--
+                ["140 - 150"] = { 0.155, 0.155, 0.155 }, --[[ X,  Y,  Z ]]--
+                ["150 - 160"] = { 0.1545, 0.1545, 0.1545 }, --[[ X,  Y,  Z ]]--
+                ["160 - 170"] = { 0.1567, 0.1567, 0.1567 }, --[[ X,  Y,  Z ]]--
+                ["170 - 180"] = { 0.1672, 0.1672, 0.1672 }, --[[ X,  Y,  Z ]]--
+                ["180 - 190"] = { 0.1746, 0.1746, 0.1746 }, --[[ X,  Y,  Z ]]--
+                ["190 - 200"] = { 0.1746, 0.1746, 0.1746 }, --[[ X,  Y,  Z ]]--
+            }
+        },
+        ['Drawings'] = {
+            ['Field Of View'] = {
+                ['Visible'] = false,
+                ['Radius'] = 300,
+                ['Filled'] = false,
+                ['Thickness'] = 1,
+                ['Transparency'] = 0.25,
+                ['Color'] = Color3.fromRGB(255, 0, 0)
+            },
+            ['Deadzone'] = {
+                ['Visible'] = false,
+                ['Radius'] = 15,
+                ['Filled'] = false,
+                ['Thickness'] = 1,
+                ['Transparency'] = 0.25,
+                ['Color'] = Color3.fromRGB(255, 0, 0)
+            },
+        },
+        ['Conditions'] = {
+            ['Wall'] = true,
+            ['Friend'] = false,
+            ['Knocked'] = true,
+            ['Grabbed'] = true,
+            ['Forcefield'] = true,
+            ['Chat Focused'] = false,
+            ['Tool Equipped'] = false,
+        }
+    },
+    --
+    ["Triggerbot"] = { 
+        ['Enabled'] = false,
+        ['Prediction'] = 0.016922,
+        ['Sensitivity'] = 2,
+        ['Cooldown'] = 0.03,
+        ['Keybind'] = "H", --
+        ['MouseBind'] = { Enabled = false, "MouseButton2" },
+        ['Mode'] = "Hold", -- Hold, Toggle
+        ['Auto Sync'] = { -- auto tb prediction
+            ['Enabled'] = true,
+            -----------------------------
+            ['Average Delay'] = 0.1,
+            ['Max Delay'] = 0.2,
+            -----------------------------
+            ['Average Speed'] = 50,
+            ['Max Speed'] = 100,
+            -----------------------------
+            ['Average Range'] = 100,
+            ['Max Range'] = 200
+        },
+        ['Drawings'] = { 
+            ['Field Of View'] = {
+                ['Visible'] = false,
+                ['Radius'] = 10,
+                ['Filled'] = true,
+                ['Thickness'] = 1,
+                ['Transparency'] = 0.25,
+                ['Color'] = Color3.fromRGB(255, 0, 0)
+            },
+        },
+    },
+    --
+    ["Menu"] = {
+        ['Enabled'] = false,
+        ['Position'] = Vector2.new(workspace.CurrentCamera.ViewportSize.X / 2 - 500, workspace.CurrentCamera.ViewportSize.Y / 2 + 100),
+        ['Color'] = Color3.fromRGB(140, 164, 201)
+    },
+    --
+    ["Raid Awareness"] = {
+        ['Enabled'] = true,
+        ['Hide Visuals'] = "H",
+        ['Add Raid Player'] = "Z",
+        ['Clear Awareness List'] = "U",
+        ['Visuals'] = {
+            ['Box'] = {
+                ['Visible'] = true,
+                ['Color'] = Color3.fromRGB(159, 194, 223),
+                ['Thickness'] = 2,
+                ['Transparency'] = 1,
+            },
+            ['Names'] = {
+                ['Visible'] = true,
+                ['Color'] = Color3.fromRGB(191, 123, 255),
+                ['Thickness'] = 1,
+                ['Outline'] = true,
+                ['Size'] = 13,
+                ['Transparency'] = 1,
+            },
+            ['Lines'] = {
+                ['Visible'] = false,
+                ['Color'] = Color3.fromRGB(191, 123, 255),
+                ['From'] = "Bottom", -- Mouse, Bottom
+                ['Thickness'] = 1,
+                ['Transparency'] = 1,
+            }
+        }
+    },
+    --
+    ['Miscellaneous'] = {
+        ['Auto Sorter'] = {
+            ['Enabled'] = true,
+            ['Keybind'] = "N",
+            ['Sort Food'] = true,
+            ['Order'] = { 
+                "[Double-Barrel SG]", 
+                "[Revolver]", 
+                "[TacticalShotgun]",
+                "[Knife]"
+            },
+        },
+        ['Ping Spike'] = {
+            ['Enabled'] = false,
+            ['Keybind'] = "F",
+            ['Real Lag'] = false,
+            ['Replication'] = 0.5,
+            ['Spike'] = 100,
+            ['Time'] = 2,
+        }
+    }
+}
+--
+if not LPH_OBFUSCATED then
+	LPH_JIT_MAX = function(...)
+		return (...)
+	end
+	LPH_NO_VIRTUALIZE = function(...)
+		return (...)
+	end
+end
+--
+wait(getgenv().Ordium["Startup"].Delay)
+--
+local RobloxReplicatedStorage = game:GetService("RobloxReplicatedStorage")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local GuiService = game:GetService("GuiService")
+local Workspace = game:GetService("Workspace")
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+local Teams = game:GetService("Teams")
+local Stats = game:GetService("Stats")
+-- // Variables
+local Network = settings():GetService("NetworkSettings")
+local Client = Players.LocalPlayer
+local Mouse = Client:GetMouse()
+local Ping = Stats.PerformanceStats.Ping:GetValue()
+local Camera = Workspace.CurrentCamera;
+-- // Optimization Variables
+local MRandom = math.random
+local Floor = math.floor
+local Round = math.round
+local Clamp = math.clamp
+local Acos = math.acos
+local Huge = math.huge
+local Sqrt = math.sqrt
+local Ceil = math.ceil
+local Cos = math.cos
+local Abs = math.abs
+local Sin = math.sin
+local Max = math.max
+local Deg = math.deg
+local Pi = math.pi
+local Remove = table.remove
+local Find = table.find
+local Lower = string.lower
+local Split = string.split
+local Create = coroutine.create
+local Resume = coroutine.resume
+local Delay = task.delay
+local Spawn = task.spawn
+local Wait = task.wait
+local Drawingnew = Drawing.new
+local Vector2new = Vector2.new
+local Vector3new = Vector3.new
+local GameId = game.GameId
+local Offset = GuiService:GetGuiInset().Y
+--
+local Ordo, DataModel, Math, PF; do
+    Ordo = {
+        Locals = {
+            Raid_Mode = true,
+            Aimbot = true,
+            Silent = true,
+            Interval = 0,
+            Triggerbot = true,
+            Forcing = false,
+            -----------------------
+            Triggerbot_Held = false,
+            Aimbot_Held = false,
+            -----------------------
+            Aim_Targ = nil,
+            Silent_Targ = nil,
+            -----------------------
+            Prioritized_One = false,
+            Prioritized_Two = false,
+            -----------------------
+            Allow_VisualRender = true,
+            -----------------------
+            BoxFOV_Size = Vector2new()
+        },      
+        -----------------------
+        ToolConnections = {},
+        SignalConnections = {},
+        SignalConnections2 = {},
+        -----------------------
+        VelocitySignals = {
+            ["Recorded Positions"] = {},
+            ["Time Cache"] = {},
+            ["Velocities"] = {}
+        },       
+        -----------------------
+        Visuals = {
+            Target_Tracer = Drawingnew("Line"),
+            Box_Corners = {},
+            Priority = {}, {
+                Label = Drawingnew("Text"),
+                Tracer = Drawingnew("Line"),
+                Lines = {},
+                Texts = {},
+                Squares = {}
+            }
+        },
+        Automatic = {
+            Ranges = {
+                {{20, 30}, 0.1010}, {{30, 40}, 0.1110}, {{40, 50}, 0.1185}, {{50, 60}, 0.1225},
+                {{60, 70}, 0.1260}, {{70, 80}, 0.1292}, {{80, 90}, 0.1302}, {{90, 100}, 0.1312},
+                {{100, 110}, 0.1330}, {{110, 120}, 0.1352}, {{120, 130}, 0.1405}, {{130, 140}, 0.1495},
+                {{140, 150}, 0.1550}, {{150, 160}, 0.1580}, {{160, 170}, 0.1660}, {{170, 180}, 0.1685},
+                {{180, 190}, 0.1855}, {{190, 200}, 0.1895}, {{200, 210}, 0.1930}, {{210, 220}, 0.2022},
+                {{220, 230}, 0.2075}, {{230, 240}, 0.2150}, {{240, 250}, 0.2202}, {{250, 260}, 0.2275},
+                {{260, 270}, 0.2322}, {{270, 280}, 0.2405}, {{280, 290}, 0.2495}, {{290, 300}, 0.2550},
+                {{300, 310}, 0.2662}, {{310, 320}, 0.2755}, {{320, 330}, 0.2805}, {{330, 340}, 0.2862},
+                {{340, 350}, 0.2905}, {{350, 360}, 0.2950}, {{360, 370}, 0.3002}, {{370, 380}, 0.3055},
+                {{380, 390}, 0.3155}, {{390, 400}, 0.3205}
+            }
+        },
+        ["Resolver Data"] = {
+            ["Recorded Positions"] = {},
+            ["Time Cache"] = {},
+            ["Velocities"] = {},
+            ["Magnitude"] = 0
+        },
+    };
+    --
+    Math = {};
+    PF = {
+        BodyParts = {
+            Head = 7,
+            Torso = 6,
+            LowerTorso = 5 -- i think
+        },
+        ESP = {
+            Boxes = {},
+            Tracers = {},
+            Chams = {}
+        },
+        Velocity = {
+            EntityPosition = nil,
+            EntityRate = nil
+        }
+    };
+end
+--
+function Ordo:Render(Class, Property)
+    local Drawing = Drawingnew(Class)
+    for Property, Value in pairs(Property) do
+        Drawing[Property] = Value
+    end
+    return Drawing
+end
+--
+local SilentFOVCircle = Ordo:Render("Circle", {})
+--
+local AimbotFOVCircle = Ordo:Render("Circle", {})
+--
+local DeadzoneFOVCircle = Ordo:Render("Circle", {})
+--
+local TriggerbotFOVCircle = Ordo:Render("Circle", {})
+--
+local VisualCircle = Ordo:Render("Image", {})
+--
+local ScreenGui = Instance.new("ScreenGui", CoreGui)
+--
+local ForceText = Instance.new("TextLabel", ScreenGui)
+ForceText.Name = "?"
+ForceText.Visible = false
+ForceText.Size = UDim2.new(0, 200, 0, 20) 
+ForceText.BackgroundColor3 = Color3.new(1,1,1)
+ForceText.BackgroundTransparency = 1
+ForceText.BorderSizePixel = 0
+ForceText.BorderColor3 = Color3.new(0,0,0)
+ForceText.TextColor3 = getgenv().Ordium["Resolver"]['Show Force Label'][2]
+ForceText.FontFace = Font.new("rbxassetid://12187371840")
+ForceText.TextSize = 9
+ForceText.TextStrokeTransparency = 0
+--
+local MenuText = Instance.new("TextLabel", ScreenGui)
+MenuText.Name = "TTT"
+MenuText.Visible = false
+MenuText.Size = UDim2.new(0, 200, 0, 20) 
+MenuText.BackgroundColor3 = Color3.new(1,1,1)
+MenuText.BackgroundTransparency = 1
+MenuText.BorderSizePixel = 0
+MenuText.BorderColor3 = Color3.new(0,0,0)
+MenuText.TextColor3 = getgenv().Ordium["Resolver"]['Show Force Label'][2]
+MenuText.FontFace = Font.new("rbxassetid://12187371840")
+MenuText.TextSize = 9
+MenuText.TextStrokeTransparency = 0
+--
+--[[ Core Functions ]]--
+do
+    LPH_JIT_MAX(function()
+        function Ordo:Listen(Table)
+            if not Table.Signal or not Table.Callback or not Table.Name then
+                error("Missing necessary fields in Table: Signal, Callback, or Name")
+            end
+            --
+            Table.Flags = Table.Flags or {}
+            --
+            local Connection
+            --
+            if table.find(Table.Flags, "Thread") then
+                Connection = coroutine.wrap(function()
+                    Table.Signal:Connect(Table.Callback)
+                end)()
+            else
+                Connection = Table.Signal:Connect(Table.Callback)
+            end
+            --
+            Ordo.SignalConnections2[Table.Name] = Connection
+            return Connection
+        end 
+        --
+        function Ordo:Thread(ThreadName, Service, Function)
+            local Connection = Service:Connect(Function)
+            Ordo.SignalConnections[ThreadName] = Connection
+            return Connection
+        end
+        --
+        function Ordo:ThreadFunction(Func, ...)
+            coroutine.wrap(Func)(...)
+        end
+        --
+        do -- // Math
+            function Math:Vector3Mod(v1, v2)
+                return Vector3new(v1.X % v2.X, v1.Y % v2.Y, v1.Z % v2.Z)
+            end
+            --
+            function Math:XYRadius(RadiusX, DistanceX, RadiusY, DistanceY)
+                return RadiusX > DistanceX and RadiusY > DistanceY and (DistanceX^2 + DistanceY^2) < (1/0)^2
+            end
+        end
+        --
+        do -- // PF
+            function PF:GetTeam(Player)
+                if Player ~= nil and Player.Parent ~= nil and Player:FindFirstChildOfClass("Folder") then
+                    local Mesh = Player:FindFirstChildWhichIsA("Folder"):FindFirstChildOfClass("MeshPart")
+                    if Mesh then
+                        if Mesh.BrickColor == BrickColor.new("Black") then
+                            return Teams.Phantoms
+                        else
+                            return Teams.Ghosts
+                        end
+                    end
+                end
+            end
+            --
+            function PF:GetGameClients()
+                local Players = workspace.Players
+                local PlayerList = {}
+                for i, Teams in Players:GetChildren() do
+                    for i, Players in Teams:GetChildren() do
+                        table.insert(PlayerList, Players)
+                    end
+                end
+                return PlayerList
+            end
+            --
+            function PF:GetTool()
+                for _, Tool in Camera:GetChildren() do
+                    if Tool:IsA("Model") and not Tool.Name:find("Arm") then
+                        return Tool
+                    end
+                end
+                return nil
+            end
+            --
+            function PF:GetBoneByIndex()
+                local Bones = {}
+                if Find(getgenv().Ordium["Universal"]["AimBone"], "Head") then
+                    table.insert(Bones, 7)
+                end
+                --
+                if Find(getgenv().Ordium["Universal"]["AimBone"], "Torso") then
+                    table.insert(Bones, 6)
+                end
+                --
+                if Find(getgenv().Ordium["Universal"]["AimBone"], "Stomach") then
+                    table.insert(Bones, 5)
+                end
+            
+                return Bones
+            end
+            --
+            function PF:GetEntity()
+                local Player = nil
+                local Distance = Huge
+                for i, Entity in PF:GetGameClients() do
+                    if Entity ~= nil then
+                        local Bone = Entity:GetChildren()[6]
+                        local Screen = Camera:WorldToViewportPoint(Bone.Position)
+                        local Magnitude = (Vector2new(Mouse.X, Mouse.Y) - Vector2new(Screen.X, Screen.Y)).Magnitude
+                        if Magnitude < Distance and Magnitude <= SilentFOVCircle.Radius * 1.25 then
+                            Player = Entity
+                            Distance = Magnitude
+                        end
+                    end
+                end
+                return Player
+            end
+            --
+            function PF:CreateESP(Player)
+                if not Find(PF.ESP.Boxes, Player) then
+                    local Box = Drawingnew("Square")
+                    Box.Color = Color3.fromRGB(255, 255, 255)
+                    Box.Transparency = 1
+                    Box.Visible = true
+                    Box.Thickness = 1
+                    Box.ZIndex = 2
+                    --
+                    table.insert(PF.ESP.Boxes, Box)
+                    table.insert(PF.ESP.Boxes, Player)
+                end
+                if not Find(PF.ESP.Tracers, Player) then
+                    local Tracer = Drawingnew("Line")
+                    Tracer.Transparency = 1
+                    Tracer.Visible = true
+                    Tracer.Color = Color3.fromRGB(255, 255, 255)
+                    --
+                    table.insert(PF.ESP.Tracers, Tracer)
+                    table.insert(PF.ESP.Tracers, Player)
+                end
+            end
+            --
+            function PF:ClearCache(Idx, Table, Index)
+                for i = 1, #Idx do
+                    Idx[i]:Destroy()
+                end
+                --
+                table.remove(Table, Index)
+                table.remove(Table, Index - 1)
+            end
+        end
+        --
+        do -- // Ordo
+            function Ordo:GetCharacter(Player)
+                return Player.Character
+            end
+            --
+            function Ordo:IsClient(Player)
+                local Character = Ordo:GetCharacter(Player)
+                local Humanoid = (Character and Character:FindFirstChildWhichIsA("Humanoid")) or false
+                local RootPart = (Humanoid and Humanoid.RootPart)
+                --
+                return Character, Humanoid, RootPart
+            end
+            --
+            function Ordo:IsEnemy(Player)
+                return Player.Character and Player ~= Client and Player.Character:FindFirstChild("HumanoidRootPart")
+            end
+            --
+            function Ordo:LocalOrigin(Origin)
+                if (Origin == "Top") then
+                    local Character, Humanoid, RootPart = Ordo:IsClient(Client)
+                    local Head = Character:FindFirstChild("Head"); if Head and Head:IsA("RootPart") then
+                        return Head.CFrame.Position
+                    end
+                elseif (Origin == "Humanoid") then
+                    local Character, Humanoid, RootPart = Ordo:IsClient(Client)
+                    --
+                    if (RootPart) then
+                        return RootPart.CFrame.Position
+                    end
+                end
+                --
+                return Camera.CFrame.Position
+            end
+            --
+            function Ordo:ObjectCheck(Part, Origin, Ignore, Distance)
+                local Ignore = Ignore or {}
+                local Distance = Distance or 2000
+                --
+                local Cast = Ray.new(Origin, (Part.Position - Origin).Unit * Distance)
+                local Hit = Workspace:FindPartOnRayWithIgnoreList(Cast, Ignore)
+                --
+                if Hit and Hit:IsDescendantOf(Part.Parent) then
+                    return true, Hit
+                else
+                    return false, Hit
+                end
+                --
+                return false, nil
+            end
+            --
+            function Ordo:GetMagnitude(Pos1, Pos2, Magnitude)
+                return (Pos1 - Pos2).Magnitude <= Magnitude
+            end
+            --
+            function Ordo:Get3DMagnitude(Position)
+                local Hit = Mouse.Hit.Position
+                local Vector = Position - Hit
+                return Vector.Magnitude
+            end
+            --
+            function Ordo:IsAntiAimed(Player)
+                if getgenv().Ordium["Resolver"].Force then
+                    return true
+                end
+                --
+                if Ordo.Locals.Forcing then
+                    return true
+                end
+                --
+                if (Player and Player.Character) then
+                    local Character, Humanoid, RootPart = Ordo:IsClient(Player)
+                    if (Humanoid and RootPart) then
+                        local Velocity = RootPart.Velocity
+                        local Current = Velocity
+                        --
+                        --[[if getgenv().Ordo.Global.Resolver.Angles.Suspicious then
+                            if (Current.Y > 20 and not Ordo:GetState(Humanoid:GetState(), Player)) or (-Current.Y > 20 and not Ordo:GetState(Humanoid:GetState(), Player)) or (-Current.Z > 5) or (Current.Z > 7) or (Ordo:GetState(Humanoid:GetState(), Player) and Current.X > 15) then
+                                return true
+                            end
+                        end]]
+                        local Regular = true
+                        --
+                        if Regular then
+                            if Velocity.X > 60 or Velocity.Z > 60 then
+                                return true
+                            end
+                            --
+                            if Velocity.Y > 53 or Velocity.Z > 26 then
+                                return true
+                            end
+                            --
+                            if Velocity.Magnitude > 100 then
+                                return true
+                            end
+                        end
+                    end
+                end
+                return false 
+            end
+            --
+            function Math.GetVelocity(Object, Type)
+                if Object then
+                    if (Type == "Regular") then
+                        return Object.Velocity
+                    end
+                    --
+                    if (Type == "Rot") then
+                        return Object.RotVelocity
+                    end
+                    --
+                    if (Type == "Linear") then
+                        return Object.AssemblyLinearVelocity
+                    end
+                    --
+                    if (Type == "Angular") then
+                        return Object.AssemblyAngularVelocity
+                    end
+                end
+            end
+            --
+            function Math.RebuildVelocity(Type, Mode, Table)
+                if Mode then
+                    if Table.Type == "Abstract" then
+                        local Suppression = 1
+                        local Aggression = 1
+                        local Position = Table.Object.Position
+                        local Tick = tick()
+                        --
+                        Ordo["Resolver Data"]["Recorded Positions"] = Ordo["Resolver Data"]["Recorded Positions"] or {}
+                        Ordo["Resolver Data"]["Time Cache"] = Ordo["Resolver Data"]["Time Cache"] or {}
+                        --
+                        table.insert(Ordo["Resolver Data"]["Recorded Positions"], Position)
+                        table.insert(Ordo["Resolver Data"]["Time Cache"], Tick)
+                        --
+                        if #Ordo["Resolver Data"]["Recorded Positions"] >= 3 then
+                            local Indexes = #Ordo["Resolver Data"]["Recorded Positions"]
+                            --
+                            local TimeData = Ordo["Resolver Data"]["Time Cache"]
+                            local PositionEntries = Ordo["Resolver Data"]["Recorded Positions"]
+                            --
+                            local IndexOne = PositionEntries[Indexes - 2]
+                            local IndexTwo = PositionEntries[Indexes - 1]
+                            local LastIndex = PositionEntries[Indexes]
+                            local TimeOne = TimeData[Indexes - 2]
+                            local TimeTwo = TimeData[Indexes - 1]
+                            local LastTime = TimeData[Indexes]
+                            --
+                            if (TimeTwo - TimeOne) ~= 0 and (LastTime - TimeTwo) ~= 0 then
+                                local StartVelocity = (IndexTwo - IndexOne) / (TimeTwo - TimeOne)
+                                local EndVelocity = (LastIndex - IndexTwo) / (LastTime - TimeTwo)
+                                --
+                                local ResolvedVelocity = (Aggression - Suppression) * StartVelocity + Suppression * EndVelocity
+                                --
+                                Ordo["Resolver Data"]["Magnitude"] = ResolvedVelocity.Magnitude
+                                --
+                                return ResolvedVelocity
+                            else
+                                return Math.GetVelocity(Table.Object, Type)
+                            end
+                        else    
+                            return Math.GetVelocity(Table.Object, Type)
+                        end
+                    else
+                        return Math.GetVelocity(Table.Object, Type)
+                    end
+                else
+                    return Math.GetVelocity(Table.Object, Type)
+                end
+            end     
+            --
+            function Ordo:GetContext()
+                local Games = {
+                    [1008451066] = {
+                        Name = "Da Hood", 
+                        HoodGame = true,
+                        Argument = "UpdateMousePosI", 
+                        Remote = "MainEvent", 
+                        BodyEffects = "K.O",
+                        ExtraArg = "P",
+                        Grabbed = function(Player)
+                            if Player and Player.Character then
+                                if Player.Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil then
+                                    return false
+                                else
+                                    return true
+                                end
+                            else
+                                return true
+                            end
+                        end,
+                        Knocked = function(Player)
+                            if Player and Player.Character then
+                                local BE = Player.Character:FindFirstChild("BodyEffects") or false
+                                if BE then
+                                    local KO = BE["K.O"] or false
+                                    if KO and KO.Value == false then
+                                        return true
+                                    else
+                                        return false
+                                    end
+                                else
+                                    return true
+                                end
+                            end
+                        end,
+                    },
+                    [3634139746] = {
+                        Name = "Hood Customs", 
+                        HoodGame = true,
+                        Argument = "MousePosUpdate", 
+                        Remote = "MainEvent", 
+                        BodyEffects = "K.O",
+                        ExtraArg = "P",
+                        Grabbed = function(Player)
+                           return true
+                        end,
+                        Knocked = function(Player)
+                            if Player and Player.Character then
+                                local BE = Player.Character:FindFirstChild("BodyEffects") or false
+                                if BE then
+                                    local KO = BE["K.O"] or false
+                                    if KO and KO.Value == false then
+                                        return true
+                                    else
+                                        return false
+                                    end
+                                else
+                                    return true
+                                end
+                            end
+                        end,
+                    },
+                    [5978701207] = {
+                        Name = "Untitled Customs", 
+                        HoodGame = true,
+                        Argument = "UpdateMousePos", 
+                        Remote = "untitledcustoms", 
+                        BodyEffects = "K.O",
+                        ExtraArg = "P",
+                        Grabbed = function(Player)
+                           return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [5611456810] = {
+                        Name = "Dah Hood", 
+                        HoodGame = true,
+                        Argument = "UpdateMousePos", 
+                        Remote = "MainEvent", 
+                        BodyEffects = "K.O",
+                        ExtraArg = "P",
+                        Grabbed = function(Player)
+                           return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [5807321331] = {
+                        Name = "Dah Hood", 
+                        HoodGame = true,
+                        Argument = "UpdateMousePos", 
+                        Remote = "MainEvent", 
+                        BodyEffects = "K.O",
+                        ExtraArg = "P",
+                        Grabbed = function(Player)
+                           return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [1958807588] = {
+                        Name = "Hood Modded", 
+                        HoodGame = true,
+                        Argument = "MousePos", 
+                        Remote = "Bullets",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [6134176644] = {
+                        Name = "OG Da Hood", 
+                        HoodGame = true,
+                        Argument = "UpdateMousePos", 
+                        Remote = "MainEvent",
+                        ExtraArg = "P",
+                        Grabbed = function(Player)
+                            if Player and Player.Character then
+                                if Player.Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil then
+                                    return false
+                                else
+                                    return true
+                                end
+                            else
+                                return true
+                            end
+                        end,
+                        Knocked = function(Player)
+                            if Player and Player.Character then
+                                local BE = Player.Character:FindFirstChild("BodyEffects")
+                                local KO = Player.Character:FindFirstChild("BodyEffects")["K.O"] or false
+                                if KO and KO.Value == false then
+                                    return true
+                                else
+                                    return false
+                                end
+                            else
+                                return true
+                            end
+                        end,
+                    },
+                    [5918066572] = {
+                        Name = "Da Downhill", 
+                        HoodGame = true,
+                        Argument = "MOUSE", 
+                        Remote = "MAINEVENT",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [5862431801] = {
+                        Name = "Dee Hood", 
+                        HoodGame = true,
+                        Argument = "UpdateMousePos", 
+                        Remote = "MainEvent",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [5568972966] = {
+                        Name = "Da Hood: Zero Delay", 
+                        HoodGame = true,
+                        Argument = "UpdateMousePos", 
+                        Remote = "MainEvent",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [5738501053] = {
+                        Name = "Da Uphill", 
+                        HoodGame = true,
+                        Argument = "MOUSE", 
+                        Remote = "MAINEVENT",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [5955728360] = {
+                        Name = "Da Hood Bot Aim Trainer", 
+                        HoodGame = true,
+                        Argument = "MOUSE", 
+                        Remote = "MAINEVENT",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [3985694250] = {
+                        Name = "1v1 Hood Aim Trainer", 
+                        HoodGame = true,
+                        Argument = "UpdateMousePos", 
+                        Remote = "MainEvent",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [5235037897] = {
+                        Name = "Da Strike",
+                        HoodGame = true,
+                        Argument = "MOUSE",
+                        Remote = "MAINEVENT",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return Object.Character:FindFirstChild("Humanoid").Health > 5 and true or false
+                        end,
+                    },
+                    [1430993116] = {
+                        Name = "a literal baseplate.", 
+                        HoodGame = false,
+                        Argument = "MOUSE", 
+                        Remote = "MAINEVENT",
+                        ExtraArg = "P",
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return true
+                        end,
+                    },
+                    [1494262959] = {
+                        Name = "Criminality", 
+                        HoodGame = false,
+                        Grabbed = function(Object)
+                            return true
+                        end,
+                        Knocked = function(Object)
+                            return true
+                        end,
+                    },
+                }
+                --
+                return Games;
+            end    
+            --
+            function Ordo:IsFriendly(Player)
+                if Player:IsFriendsWith(Client.UserId) then
+                    return false
+                else
+                    return true
+                end
+            end
+            --
+            function Ordo:IsCrew(Player)
+                local SelfCrew = Client:WaitForChild("DataFolder"):FindFirstChild("Crew", true)
+                local EnemyCrew = Player:WaitForChild("DataFolder"):FindFirstChild("Crew", true)
+                if SelfCrew and EnemyCrew then
+                    if (SelfCrew.Value ~= "" and EnemyCrew.Value ~= "") and (SelfCrew.Value == EnemyCrew.Value) then
+                        return false
+                    end
+                else
+                    return true
+                end
+            end
+            --
+            function Ordo:MouseMove(Property, Table)
+                local Endpoint = Vector2new(Property.X, Property.Y)
+                local Final = Endpoint - Vector2new(Mouse.X, Mouse.Y)
+                --
+                local newX = Mouse.X + Final.X * Table["ASSIST_StickynessX"] / Table["ASSIST_SmoothingX"] 
+                local newY = Mouse.Y + Final.Y * Table["ASSIST_StickynessY"] / Table["ASSIST_SmoothingY"] 
+                --
+                mousemoverel(newX - Mouse.X, newY - Mouse.Y)
+            end
+            --
+            function Ordo:GetHitChance(Percent)
+                Percent = Floor(Percent)
+                local HitChance = Floor(MRandom() * 100) / 100
+                return HitChance <= Percent / 100
+            end
+            --
+            function Ordo:Velocity(Bone)
+                local Position = Bone.Position
+                local LTick = tick()
+                --
+                if PF.Velocity.EntityPosition and PF.Velocity.EntityRate then
+                    local deltaTime = LTick - PF.Velocity.EntityRate
+                    local velocity = (Position - PF.Velocity.EntityPosition) / deltaTime
+            
+                    return velocity
+                end
+                --
+                PF.Velocity.EntityPosition = Position
+                PF.Velocity.EntityRate = LTick
+            end    
+            --
+            function Ordo:GetPart(Player, Table)
+                local SelectedPart = nil;
+                local Distance = Huge
+                for _, Part in pairs(Table) do
+                    local Box = Player.Character:FindFirstChild(Part)
+                    if Box then
+                        local World = Camera:WorldToViewportPoint(Box.Position)
+                        local Difference = (UserInputService:GetMouseLocation() - Vector2new(World.X, World.Y)).Magnitude
+                        if Difference < Distance then
+                            SelectedPart = Box
+                            Distance = Difference
+                        end
+                    end
+                end
+                return SelectedPart
+            end
+            --
+            function Ordo:GetNearestPoint(Part, Type)
+                local HitPosition = Mouse.Hit.p
+                --
+                if Type == "Generic" then
+                    if Part then
+                        local PartCenter = Part.Position
+                        local PartSize = Part.Size
+                        local Half = PartSize / 2
+                        
+                        local NearestPosition = Vector3new(
+                            Clamp(HitPosition.X, PartCenter.X - Half.X, PartCenter.X + Half.X),
+                            Clamp(HitPosition.Y, PartCenter.Y - Half.Y, PartCenter.Y + Half.Y),
+                            Clamp(HitPosition.Z, PartCenter.Z - Half.Z, PartCenter.Z + Half.Z)
+                        )
+                        --
+                        return NearestPosition
+                    end
+                elseif Type == "Full" then
+                    if Part then
+                        local Hit, Half = Mouse.Hit.Position, Part.Size * 0.25
+                        local Transform = Part.CFrame:PointToObjectSpace(Mouse.Hit.Position)
+                        local NearestPosition =
+                            Part.CFrame *
+                            Vector3new(
+                                Clamp(Transform.X, -Half.X, Half.X),
+                                Clamp(Transform.Y, -Half.Y, Half.Y),
+                                Clamp(Transform.Z, -Half.Z, Half.Z)
+                            )
+                        --
+                        return NearestPosition
+                    end
+                elseif Type == "Partial" then
+                    if Part then
+                        local LocalPosition = Part.CFrame:pointToObjectSpace(Mouse.Hit.Position)
+                        local Size = Part.Size / 2
+                        --
+                        local x = Clamp(LocalPosition.x, -Size.x, Size.x)
+                        local y = Clamp(LocalPosition.y, -Size.y, Size.y)
+                        local z = Clamp(LocalPosition.z, -Size.z, Size.z)
+                        local w = Part.CFrame:pointToWorldSpace(Vector3new(x, y, z))
+                        --
+                        return w    
+                    end
+                elseif Type == "Scalar" then
+                    if Part ~= nil then
+                        local Hit, Half = Mouse.Hit.p, Part.Size * 0.5
+                        local Transform = Part.CFrame:PointToObjectSpace(Hit)
+                        local Endpoint = Part.CFrame * Vector3new(
+                            Clamp(Transform.X, - Half.X, Half.X), 
+                            Clamp(Transform.Y, - Half.Y, Half.Y), 
+                            Clamp(Transform.Z, - Half.Z, Half.Z)
+                        )
+                        --
+                        return Endpoint
+                    end
+                    elseif Type == "Absolute" then
+                        if Part then
+                            local mouseray = Mouse.UnitRay
+                            mouseray = mouseray.Origin + (mouseray.Direction * (Part.Position - mouseray.Origin).Magnitude)
+                            local point = (mouseray.Y >= (Part.Position - Part.Size / 2).Y and mouseray.Y <= (Part.Position + Part.Size / 2).Y) and (Part.Position + Vector3new(0, -Part.Position.Y + mouseray.Y, 0)) or Part.Position
+                            local check = RaycastParams.new()
+                            check.FilterType = Enum.RaycastFilterType.Whitelist
+                            check.FilterDescendantsInstances = {Part}
+                            local ray = Workspace:Raycast(mouseray, (point - mouseray), check)
+                            if ray then
+                                return ray.Position
+                            else
+                                return Mouse.Hit.Position
+                            end
+                        end
+                    end
+                return nil
+            end
+            --
+            function Ordo:IsABasePart(Object)
+                if string.find(Object.Name, "Gun") then
+                    return
+                end
+                if Find({"Part", "MeshPart", "BasePart"}, Object.ClassName) then
+                    return true
+                end
+            end
+            --
+            function PF:GetPart(Player, Table)
+                local SelectedPart = nil;
+                local Distance = Huge
+                for _, Part in pairs(Table) do
+                    local Box = Player:GetChildren()[Part]
+                    if Box then
+                        local World = Camera:WorldToViewportPoint(Box.Position)
+                        local Difference = (UserInputService:GetMouseLocation() - Vector2new(World.X, World.Y)).Magnitude
+                        if Difference < Distance then
+                            SelectedPart = Box
+                            Distance = Difference
+                        end
+                    end
+                end
+                return SelectedPart
+            end
+            --
+            function Ordo:GetNearestBone(Object)
+                local ClosestDistance = 1 / 0
+                local BodyPart = nil
+                --
+                if (Object and Object:GetChildren()) then
+                    for _, Part in next, Object:GetChildren() do
+                        if Ordo:IsABasePart(Part) and Camera:WorldToScreenPoint(Part.Position) then
+                            local Position = Camera:WorldToScreenPoint(Part.Position)
+                            local Distance = (Vector2new(Mouse.X, Mouse.Y) - Vector2new(Position.X, Position.Y)).Magnitude
+                            --
+                            if (Distance < ClosestDistance) then
+                                ClosestDistance = Distance
+                                BodyPart = Part
+                            end
+                        end
+                    end
+                end
+                return BodyPart
+            end
+            --
+            function Ordo:CalculateDirection(BonePosition, BoneVelocity, TimeAhead, Formula)
+                if (Formula == "*") then
+                    return BonePosition + (BoneVelocity * TimeAhead)
+                elseif (Formula == "/") then
+                    return BonePosition + (BoneVelocity / TimeAhead)
+                end
+            end
+            --
+            function Ordo:IsJumped(State, Player)
+                local Object, Humanoid, RootPart = Ordo:IsClient(Player)
+                --
+                if (Object and Humanoid and RootPart) then
+                    return (
+                        State == Enum.HumanoidStateType.Jumping or 
+                        State == Enum.HumanoidStateType.FallingDown or 
+                        Humanoid.FloorMaterial == Enum.Material.Air
+                    )
+                end
+            end
+            --
+            function Ordo:ChoosePriority(Choice)
+                local GameIndex = Ordo:GetContext()[GameId]
+                if not GameIndex then return end
+                local TeamCheck = false
+                local Target, Closest = nil, Huge
+                local Players = Players:GetPlayers()
+                local LocalCharacter = Ordo:GetCharacter(Client)
+                local LocalOrigin = Ordo:LocalOrigin("Camera")
+            
+                local function IsTargetValid(Player)
+                    return Player.Character and Player ~= Client and Player.Character:FindFirstChild("HumanoidRootPart") and Player.Character:FindFirstChild("Humanoid")
+                end
+            
+                local function IsEnemy(Player)
+                    return not TeamCheck or Player.Team ~= Client.Team
+                end
+            
+                local function CalculateDistance(Position)
+                    local DistanceX, DistanceY = Abs(Position.X - Mouse.X), Abs(Position.Y - Mouse.Y)
+                    return DistanceX^2 + DistanceY^2, DistanceX, DistanceY
+                end
+            
+                if Choice == "Aimbot" or Choice == "Triggerbot" then
+                    local RadiusX, RadiusY = AimbotFOVCircle.Radius, AimbotFOVCircle.Radius
+            
+                    if Choice == "Triggerbot" then
+                        RadiusX, RadiusY = TriggerbotFOVCircle.Radius, TriggerbotFOVCircle.Radius
+                    end
+            
+                    for _, Player in pairs(Players) do
+                        if IsTargetValid(Player) and IsEnemy(Player) then
+                            local Position, Visible = Camera:WorldToScreenPoint(Player.Character.HumanoidRootPart.Position)
+                            local DistanceSquared, DistanceX, DistanceY = CalculateDistance(Position)
+            
+                            if Ordo:ObjectCheck(Player.Character.HumanoidRootPart, LocalOrigin, {LocalCharacter}) and GameIndex.Knocked(Player) and GameIndex.Grabbed(Player) then
+                                if RadiusX > DistanceX and RadiusY > DistanceY and DistanceSquared < Closest and Visible then
+                                    Closest = DistanceSquared
+                                    Target = Player
+                                end
+                            end
+                        end
+                    end
+            
+                elseif Choice == "Silent" then
+                    for _, Player in pairs(Players) do
+                        if Ordo:IsEnemy(Player) then
+                            local RootPart = Player.Character:FindFirstChild("HumanoidRootPart")
+                            local CharacterSize = (Camera:WorldToViewportPoint(RootPart.Position - Vector3new(0, 3, 0)).Y - Camera:WorldToViewportPoint(RootPart.Position + Vector3new(0, 2.6, 0)).Y) / 2
+            
+                            local WidthMultiplier = getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Radius.Width
+                            local HeightMultiplier = getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Radius.Height
+            
+                            local Width, Height = Floor(CharacterSize * WidthMultiplier), Floor(CharacterSize * HeightMultiplier)
+                            local Box = Vector2new(Width, Height)
+            
+                            local RadiusX = getgenv().Ordium["Silent Aim"]['Hit Mode'] == "Box" and Box.Y / 2 or SilentFOVCircle.Radius
+                            local RadiusY = getgenv().Ordium["Silent Aim"]['Hit Mode'] == "Box" and Box.Y / 2 or SilentFOVCircle.Radius
+            
+                            local Position, Visible = Camera:WorldToScreenPoint(Player.Character[tostring(Ordo:GetNearestBone(Player.Character))].Position)
+                            local DistanceSquared, DistanceX, DistanceY = CalculateDistance(Position)
+            
+                            if Ordo:ObjectCheck(Player.Character.HumanoidRootPart, LocalOrigin, {LocalCharacter}) and GameIndex.Knocked(Player) and GameIndex.Grabbed(Player) then
+                                if RadiusX > DistanceX and RadiusY > DistanceY and DistanceSquared < Closest and Visible then
+                                    Closest = DistanceSquared
+                                    Target = Player
+                                end
+                            end
+                        end
+                    end
+                end
+            
+                return Target
+            end                    
+            --
+            function Ordo:Rotation(Position, BoxRotation, BoxSize)
+                return Position.X >= BoxRotation.X and
+                Position.X <= BoxRotation.X + BoxSize.X and
+                Position.Y >= BoxRotation.Y and
+                Position.Y <= BoxRotation.Y + BoxSize.Y
+            end
+            --
+            function Ordo:UpdateBox()
+                local Selection = Ordo.Locals.Silent_Targ
+                if Selection and Selection.Character then
+                    local Head = Selection.Character:FindFirstChild("Head")
+                    local Humanoid = Selection.Character:FindFirstChild("Humanoid")
+                    local RootPart = Selection.Character:FindFirstChild("HumanoidRootPart")
+                    local Prediction = getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Prediction
+                    local Numbers = getgenv().Ordium["Silent Aim"].Prediction.Prediction
+                    local Position;
+                    local Color;
+                    --
+                    if Selection == Ordo.Locals.Aim_Targ then
+                        Color = getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View']['Focused Color']
+                    else
+                        Color = getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Color
+                    end
+                    --
+                    if (Prediction) then
+                        Position = Vector3new(Numbers[1] / 2, Numbers[2] / 5, Numbers[3] / 2)
+                    else
+                        Position = Vector3new(0, 0, 0)
+                    end
+                    --
+                    if Head and Humanoid and RootPart then
+                        --
+                        local Screen, Visible = Camera:WorldToViewportPoint(RootPart.Position + Math.RebuildVelocity(getgenv().Ordium['Silent Aim'].Prediction['Velocity Type'], Ordo:IsAntiAimed(Selection), {
+                            Type = "Abstract",
+                            Object = RootPart
+                        }) * Position)
+                        --
+                        if Visible then
+                            if getgenv().Ordium["Silent Aim"].Drawings.Tracer.Visible then
+                                Ordo.Visuals.Target_Tracer.Visible = Ordo.Locals.Allow_VisualRender and Visible and getgenv().Ordium["Silent Aim"].Drawings.Tracer.Visible
+                                Ordo.Visuals.Target_Tracer.Color = getgenv().Ordium["Silent Aim"].Drawings.Tracer.Color
+                                Ordo.Visuals.Target_Tracer.Thickness = getgenv().Ordium["Silent Aim"].Drawings.Tracer.Thickness
+                                Ordo.Visuals.Target_Tracer.Transparency = getgenv().Ordium["Silent Aim"].Drawings.Tracer.Transparency
+                                Ordo.Visuals.Target_Tracer.From = Vector2new(Mouse.X, Mouse.Y + 36)
+                                Ordo.Visuals.Target_Tracer.To = Vector2new(Screen.X, Screen.Y)
+                            end
+                            local CharacterSize = (Camera:WorldToViewportPoint(RootPart.Position - Vector3new(0, 3, 0)).Y - 
+                            Camera:WorldToViewportPoint(RootPart.Position + Vector3new(0, 2.6, 0)).Y) / 2
+                            --
+                            local BoxWidth = Floor(CharacterSize * getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Radius.Width)
+                            local BoxHeight = Floor(CharacterSize * getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Radius.Height)
+                            local BoxPosition = Vector2new(Screen.X - BoxWidth / 2, Screen.Y - BoxHeight / 2)
+                            Ordo.Locals.BoxFOV_Size = Vector2new(BoxWidth, BoxHeight)
+                            --
+                            local L_Width = (BoxWidth / 5)
+                            local L_Height = (BoxHeight / 6)
+                            local L_T = 2
+                            --
+                            if #Ordo.Visuals.Box_Corners == 0 then
+                                for i = 1, 16 do
+                                    table.insert(Ordo.Visuals.Box_Corners, Drawingnew("Line", {
+                                        Thickness = 1,
+                                        Color = Color3.fromRGB(120, 168, 231),
+                                        Transparency = 1
+                                    }))
+                                end
+                            end
+                            -- Top left
+                            Ordo.Visuals.Box_Corners[1].From = Vector2new(BoxPosition.X - L_T, BoxPosition.Y - L_T)
+                            Ordo.Visuals.Box_Corners[1].To = Vector2new(BoxPosition.X + L_Width, BoxPosition.Y - L_T)
+                            
+                            Ordo.Visuals.Box_Corners[2].From = Vector2new(BoxPosition.X - L_T, BoxPosition.Y - L_T)
+                            Ordo.Visuals.Box_Corners[2].To = Vector2new(BoxPosition.X - L_T, BoxPosition.Y + L_Height)
+                            
+                            -- Top right
+                            Ordo.Visuals.Box_Corners[3].From = Vector2new(BoxPosition.X + BoxWidth - L_Width, BoxPosition.Y - L_T)
+                            Ordo.Visuals.Box_Corners[3].To = Vector2new(BoxPosition.X + BoxWidth + L_T, BoxPosition.Y - L_T)
+                            
+                            Ordo.Visuals.Box_Corners[4].From = Vector2new(BoxPosition.X + BoxWidth + L_T, BoxPosition.Y - L_T)
+                            Ordo.Visuals.Box_Corners[4].To = Vector2new(BoxPosition.X + BoxWidth + L_T, BoxPosition.Y + L_Height)
+                            
+                            -- Bottom left
+                            Ordo.Visuals.Box_Corners[5].From = Vector2new(BoxPosition.X - L_T, BoxPosition.Y + BoxHeight - L_Height)
+                            Ordo.Visuals.Box_Corners[5].To = Vector2new(BoxPosition.X - L_T, BoxPosition.Y + BoxHeight + L_T)
+                            
+                            Ordo.Visuals.Box_Corners[6].From = Vector2new(BoxPosition.X - L_T, BoxPosition.Y + BoxHeight + L_T)
+                            Ordo.Visuals.Box_Corners[6].To = Vector2new(BoxPosition.X + L_Width, BoxPosition.Y + BoxHeight + L_T)
+                            
+                            -- Bottom right
+                            Ordo.Visuals.Box_Corners[7].From = Vector2new(BoxPosition.X + BoxWidth - L_Width, BoxPosition.Y + BoxHeight + L_T)
+                            Ordo.Visuals.Box_Corners[7].To = Vector2new(BoxPosition.X + BoxWidth + L_T, BoxPosition.Y + BoxHeight + L_T)
+                            
+                            Ordo.Visuals.Box_Corners[8].From = Vector2new(BoxPosition.X + BoxWidth + L_T, BoxPosition.Y + BoxHeight + L_T)
+                            Ordo.Visuals.Box_Corners[8].To = Vector2new(BoxPosition.X + BoxWidth + L_T, BoxPosition.Y + BoxHeight - L_Height)
+                            --
+                            for _, Line in ipairs(Ordo.Visuals.Box_Corners) do
+                                Line.Visible = Ordo.Locals.Allow_VisualRender and getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Visible
+                                Line.Color = Color
+                                Line.Transparency = getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Transparency
+                                Line.Thickness = getgenv().Ordium["Silent Aim"].Drawings['Box Field Of View'].Thickness
+                            end
+                        else
+                            for _, Line in ipairs(Ordo.Visuals.Box_Corners) do
+                                Line:Remove()
+                            end
+                            Ordo.Visuals.Box_Corners = {}
+                            Ordo.Visuals.Target_Tracer.Visible = false
+                        end
+                    else
+                        for _, Line in ipairs(Ordo.Visuals.Box_Corners) do
+                            Line:Remove()
+                        end
+                        Ordo.Visuals.Box_Corners = {}
+                        Ordo.Visuals.Target_Tracer.Visible = false
+                    end
+                else
+                    for _, Line in ipairs(Ordo.Visuals.Box_Corners) do
+                        Line:Remove()
+                    end
+                    Ordo.Visuals.Box_Corners = {}
+                    Ordo.Visuals.Target_Tracer.Visible = false
+                end
+            end    
+            --
+            function Ordo:IsPriority(Player)
+                for _, Client in ipairs(Ordo.Visuals.Priority) do
+                    if Client == Player then
+                        return true
+                    end
+                end
+                return false
+            end
+            --
+            function Ordo:AddPriority(Player)
+                if getgenv().Ordium["Raid Awareness"].Enabled then
+                    if not Ordo:IsPriority(Player) then
+                        table.insert(Ordo.Visuals.Priority, Player)
+                    end
+                end
+            end
+            --
+            function Ordo:RemovePriority(Player)
+                for i, p in ipairs(Ordo.Visuals.Priority) do
+                    if p == Player then
+                        table.remove(Ordo.Visuals.Priority, i)
+                        return
+                    end
+                end
+            end
+            --
+            function Ordo:SelectPriority()
+                if getgenv().Ordium["Raid Awareness"].Enabled then
+                    for _, PossiblePriority in pairs(Players:GetPlayers()) do
+                        if PossiblePriority ~= Client then 
+                            local Character = PossiblePriority.Character
+                            if Character and Character:IsDescendantOf(Workspace) then
+                                local RootPart = Character:FindFirstChild("HumanoidRootPart")
+                                if RootPart then
+                                    local World = Camera:WorldToViewportPoint(RootPart.Position)
+                                    local Distance = (Vector2new(Mouse.X, Mouse.Y) - Vector2new(World.X, World.Y)).Magnitude
+                                    if Distance < 50 then
+                                        if not Ordo:IsPriority(PossiblePriority) then
+                                            Ordo:AddPriority(PossiblePriority)
+                                            break
+                                        else
+                                            Ordo:RemovePriority(PossiblePriority)
+                                            break
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+            --
+            function Ordo:ClearPriority()
+                Ordo.Visuals.Priority = {}
+            end
+            --
+            function Ordo:GetToolName(Player)
+                local Character = Player.Character
+                local Ignored = {
+                    "Wallet",
+                    "Phone"
+                };
+                local Tool = Character and Character:FindFirstChildWhichIsA("Tool") or false
+                if Tool then
+                    if string.find(Tool.Name, "%[") and string.find(Tool.Name, "%]") and not string.find(Tool.name, Ignored[1]) and not string.find(Tool.Name, Ignored[2]) then
+                        local ToolName = Split(Split(Tool.Name, "[")[2], "]")[1]
+                        return ToolName
+                    end
+                else
+                    return nil
+                end
+            end
+            --
+            function Ordo:Deadzone(Player)
+                if Player then
+                    local HitBones = getgenv().Ordium["Aimbot"].HitParts.HitBones
+                    local CurrentPart = tostring(Ordo:GetPart(Player, HitBones))
+                    local Position = Player.Character[CurrentPart].Position
+                    local World = Camera:WorldToViewportPoint(Position)
+                    local Magnitude = (Vector2new(Mouse.X, Mouse.Y + 36) - Vector2new(World.X, World.Y)).Magnitude
+                    if Magnitude <= DeadzoneFOVCircle.Radius then
+                        return false 
+                    else
+                        return true
+                    end
+                else
+                    return true
+                end
+            end
+            --
+            function Ordo:LagServer(Increase) 
+                local Main, Spammed = {}, {}
+                local function getmax(value)
+                    local eachTable = 499999
+                    if type(value) ~= "number" then
+                        return nil
+                    else
+                        local increasedValue = (eachTable / (value + 2))
+                        return increasedValue
+                    end
+                    return nil
+                end
+                table.insert(Spammed, {})
+                other_table = Spammed[1]
+                local maxValue, Limit = getmax(Increase), nil
+                for i = 1, Increase do
+                    local empty = {}
+                    table.insert(other_table, empty)
+                    other_table = empty
+                end
+                if maxValue ~= nil then
+                    Limit = maxValue
+                else
+                    Limit = 999999
+                end
+                for i = 1, Limit do
+                    table.insert(Main, Spammed)
+                end
+                RobloxReplicatedStorage.SetPlayerBlockList:FireServer(Main)
+            end
+            --
+            function Ordo:GetMultiply(factor)
+                for _, range in ipairs(Ordo.Automatic.Ranges) do
+                    if range[1][1] < factor and factor <= range[1][2] then
+                        return range[2]
+                    end
+                end
+                --
+                return 0.0
+            end
+            --
+            function Ordo:UpdatePing()
+                --
+                local Raw = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+                local Split = Split(Raw, '(')
+                local Ping = tonumber(Split[1])
+                --
+                if getgenv().Ordium["Aimbot"].Prediction['Ping Based'] then
+                    --
+                    if Ping < 200 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["190 - 200"]
+                    elseif Ping < 190 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["180 - 190"]
+                    elseif Ping < 180 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["170 - 180"]
+                    elseif Ping < 170 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["160 - 170"]
+                    elseif Ping < 160 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["150 - 160"]
+                    elseif Ping < 150 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["140 - 150"]
+                    elseif Ping < 140 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["130 - 140"]
+                    elseif Ping < 130 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["120 - 130"]
+                    elseif Ping < 120 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["110 - 120"]
+                    elseif Ping < 110 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["100 - 110"]
+                    elseif Ping < 100 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["90 - 100"]
+                    elseif Ping < 90 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["80 - 90"]
+                    elseif Ping < 80 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["70 - 80"]
+                    elseif Ping < 70 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["60 - 70"]
+                    elseif Ping < 60 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["50 - 60"]
+                    elseif Ping < 50 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["40 - 50"]
+                    elseif Ping < 40 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["30 - 40"]
+                    elseif Ping < 30 then
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction = getgenv().Ordium["Aimbot"].Prediction['Ping Ranges']["20 - 30"]
+                    end
+                end
+                --
+                if getgenv().Ordium["Silent Aim"].Prediction['Ping Based'] then
+                    --
+                    if Ping < 200 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["190 - 200"]
+                    elseif Ping < 190 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["180 - 190"]
+                    elseif Ping < 180 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["170 - 180"]
+                    elseif Ping < 170 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["160 - 170"]
+                    elseif Ping < 160 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["150 - 160"]
+                    elseif Ping < 150 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["140 - 150"]
+                    elseif Ping < 140 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["130 - 140"]
+                    elseif Ping < 130 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["120 - 130"]
+                    elseif Ping < 120 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["110 - 120"]
+                    elseif Ping < 110 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["100 - 110"]
+                    elseif Ping < 100 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["90 - 100"]
+                    elseif Ping < 90 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["80 - 90"]
+                    elseif Ping < 80 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["70 - 80"]
+                    elseif Ping < 70 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["60 - 70"]
+                    elseif Ping < 60 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["50 - 60"]
+                    elseif Ping < 50 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["40 - 50"]
+                    elseif Ping < 40 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["30 - 40"]
+                    elseif Ping < 30 then
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction = getgenv().Ordium["Silent Aim"].Prediction['Ping Ranges']["20 - 30"]
+                    end
+                end
+                --
+                if getgenv().Ordium["Aimbot"].Prediction['Automatic'] then
+                    local Ping = Ordo:GetMultiply(Ping)
+                    for i = 1, 3 do
+                        getgenv().Ordium["Aimbot"].Prediction.Prediction[i] = Ping
+                    end
+                end            
+                --
+                if getgenv().Ordium["Silent Aim"].Prediction['Automatic'] then
+                    local Ping = Ordo:GetMultiply(Ping)
+                    for i = 1, 3 do
+                        getgenv().Ordium["Silent Aim"].Prediction.Prediction[i] = Ping
+                    end
+                end 
+            end
+            --
+            local function Clean(table)
+                for player, element in pairs(table) do
+                    if not Ordo:IsPriority(player) then
+                        element:Remove()
+                        table[player] = nil
+                    end
+                end
+            end
+            --
+            function Ordo:DrawPriority()
+                local RAID_Enabled = getgenv().Ordium["Raid Awareness"].Enabled
+                local RAID_Visuals = getgenv().Ordium["Raid Awareness"].Visuals
+                local Environment = Ordo.Visuals
+                local Priority = Environment.Priority
+                local CanDraw = Ordo.Locals.Raid_Mode
+                local Table = Environment[1]
+                --
+                if RAID_Enabled then
+                    Clean(Table.Lines)
+                    Clean(Table.Texts)
+                    Clean(Table.Squares)
+                    --
+                    for _, Player in ipairs(Priority) do
+                        local RootPart = Player.Character and Player.Character:FindFirstChild("HumanoidRootPart")
+                        if not RootPart then
+                            return
+                        end
+                        local Position, Visible = Camera:WorldToViewportPoint(RootPart.Position)
+                        local CharacterSize = (Camera:WorldToViewportPoint(RootPart.Position - Vector3new(0, 3, 0)).Y -
+                                               Camera:WorldToViewportPoint(RootPart.Position + Vector3new(0, 2.6, 0)).Y) / 2
+            
+                        --
+                        if RAID_Visuals["Names"].Visible then
+                            local Text = Table.Texts[Player]
+                            if not Text then
+                                Text = Drawingnew("Text")
+                                Text.Font = Drawing.Fonts.Plex
+                                Text.Size = RAID_Visuals.Names.Size
+                                Text.Outline = RAID_Visuals.Names.Outline
+                                Text.Color = RAID_Visuals.Names.Color
+                                Text.Center = true
+                                Table.Texts[Player] = Text
+                            end
+                            local HumanoidViewpoint = Camera:WorldToViewportPoint(RootPart.Position)
+                            local CharacterSize = (Camera:WorldToViewportPoint(RootPart.Position - Vector3new(0, 3, 0)).Y - Camera:WorldToViewportPoint(RootPart.Position + Vector3new(0, 2.6, 0)).Y) / 2
+                            local SizeVector = Vector2new(Floor(CharacterSize * 1.8), Floor(CharacterSize * 1.9))
+                            local FloorVector = Vector2new(Floor(HumanoidViewpoint.X - CharacterSize * 1.8 / 2), Floor(HumanoidViewpoint.Y - CharacterSize * 1.6 / 2))
+            
+                            Text.Visible = CanDraw and Visible
+                            Text.Text = Player.DisplayName .. " (" .. Player.Name .. ")"
+                            Text.Position = Vector2new(SizeVector.X / 2 + FloorVector.X, FloorVector.Y - 16) + Vector2new(0, -35)
+                        end
+                        --
+                        if RAID_Visuals["Lines"].Visible then
+                            local Line = Table.Lines[Player]
+                            if not Line then
+                                Line = Drawingnew("Line")
+                                Table.Lines[Player] = Line
+                            end
+                            Line.Thickness = RAID_Visuals.Lines.Thickness
+                            Line.Transparency = RAID_Visuals.Lines.Transparency
+                            Line.Visible = CanDraw and Visible
+                            Line.From = RAID_Visuals.Lines.From == "Bottom" and Vector2new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y - 135) or UserInputService:GetMouseLocation()
+                            Line.To = Vector2new(Position.X, Position.Y)
+                            Line.Color = RAID_Visuals.Lines.Color
+                        end
+                        --
+                        if RAID_Visuals["Box"].Visible then
+                            local Square = Table.Squares[Player]
+                            if not Square then
+                                Square = Drawingnew("Square")
+                                Square.Thickness = RAID_Visuals.Box.Thickness
+                                Square.Transparency = RAID_Visuals.Box.Transparency
+                                Square.Color = RAID_Visuals.Box.Color
+                                Table.Squares[Player] = Square
+                            end
+                            local BoxWidth = Floor(CharacterSize * 1.3)
+                            local BoxHeight = Floor(CharacterSize * 1.9)
+                            Square.Visible = CanDraw and Visible
+                            Square.Size = Vector2new(BoxWidth, BoxHeight)
+                            Square.Position = Vector2new(Position.X - BoxWidth / 2, Position.Y - BoxHeight / 2)
+                        end
+            
+                    end
+                else
+                    Clean(Table.Lines)
+                    Clean(Table.Texts)
+                    Clean(Table.Squares)
+                    Table.Lines = {}
+                    Table.Texts = {}
+                    Table.Squares = {}
+                    Environment.Priority = {}
+                end
+            end
+            --
+            function Ordo:UpdateTask()
+                local locals = Ordo.Locals
+                local ordium = getgenv().Ordium
+                local mousePos = Vector2new(Mouse.X, Mouse.Y) + Vector2new(0, Offset)
+                
+                local function updateFOVCircle(circle, settings)
+                    circle.Visible = locals.Allow_VisualRender and settings.Visible
+                    circle.Radius = settings.Radius
+                    circle.Filled = settings.Filled
+                    circle.Transparency = settings.Transparency
+                    circle.Thickness = settings.Thickness
+                    circle.Color = settings.Color
+                    circle.Position = mousePos
+                end
+                
+                updateFOVCircle(SilentFOVCircle, ordium["Silent Aim"].Drawings['Field Of View'])
+                updateFOVCircle(AimbotFOVCircle, ordium["Aimbot"].Drawings['Field Of View'])
+                updateFOVCircle(DeadzoneFOVCircle, ordium["Aimbot"].Drawings['Deadzone'])
+                updateFOVCircle(TriggerbotFOVCircle, ordium["Triggerbot"].Drawings['Field Of View'])
+                
+
+                                
+                Ordo:DrawPriority()
+                Ordo:UpdateBox()
+                Ordo:UpdatePing()
+
+
+                local resolverSettings = ordium["Resolver"]['Show Force Label']
+                if resolverSettings[1] and locals.Forcing then
+                    local textBounds = ForceText.TextBounds
+                    local offset = Vector2new(textBounds.X / 2, textBounds.Y / 2)
+                    local position = Vector2new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+                    local magnitude = Ordo["Resolver Data"]["Magnitude"]
+                    local unsafe = (magnitude > 30) and "true" or "false"
+                    
+                    ForceText.Visible = true
+                    ForceText.Text = string.format("Resolver\nAngle: %s\nUnsafe: %s", (magnitude > 0 and tostring(Floor(magnitude)) or "0"), unsafe)
+                    ForceText.Size = UDim2.new(0, textBounds.X, 0, textBounds.Y)
+                    ForceText.Position = UDim2.new(0, position.X - offset.X, 0, position.Y - offset.Y)
+                else
+                    ForceText.Visible = false
+                end
+                
+                -- Update Menu
+                if ordium["Menu"].Enabled then
+                    local textBounds = MenuText.TextBounds
+                    local mode = ordium["Triggerbot"].Mode
+                    local triggerbotOn = (mode == "Toggle" and locals.Triggerbot) or (mode == "Hold" and locals.Triggerbot_Held)
+                    
+                    MenuText.Visible = locals.Allow_VisualRender
+                    MenuText.Text = string.format(
+                        "Triggerbot: %s\nRaidMode: %s\nAntiCurve: %s (%s)",
+                        (triggerbotOn and "On" or "Off"),
+                        (ordium["Raid Awareness"].Enabled and locals.Raid_Mode and "On" or "Off"),
+                        (ordium["Silent Aim"]['Anti Curve'].Enabled and "On" or "Off"),
+                        ordium["Silent Aim"]['Anti Curve'].Mode
+                    )
+                    MenuText.Size = UDim2.new(0, textBounds.X, 0, textBounds.Y)
+                    MenuText.Position = UDim2.new(0, ordium["Menu"].Position.X, 0, ordium["Menu"].Position.Y)
+                    MenuText.TextColor3 = ordium["Menu"].Color
+                else
+                    MenuText.Visible = false
+                end
+            end            
+            --
+            function Ordo:Disconnect()
+                for Index, Connection in next, Ordo.SignalConnections2 do
+                    Connection:Disconnect()
+                end
+                --
+                for Index, Drawing in next, Ordo.Visuals[1].Lines do
+                    Drawing:Destroy()
+                end
+                --
+                for Index, Drawing in next, Ordo.Visuals[1].Texts do
+                    Drawing:Destroy()
+                end
+                --
+                for Index, Drawing in next, Ordo.Visuals[1].Squares do
+                    Drawing:Destroy()
+                end
+                --
+                for Index, Drawing in ipairs(Ordo.Visuals.Box_Corners) do
+                    Drawing:Destroy()
+                end
+                --
+                SilentFOVCircle:Destroy()
+                AimbotFOVCircle:Destroy()
+                DeadzoneFOVCircle:Destroy()
+                getgenv().Ordium = nil
+            end
+        end
+    end)()
+end
+--
+local _Tick = tick()
+do --[[ Main ]]
+    do -- [[ Combat ]]
+        function Ordo:AimAssistActivation()
+            --
+            if not getgenv().Ordium["Aimbot"].Enabled[1] then 
+                return 
+            end
+            --
+            if not getgenv().Ordium["Aimbot"]['Sticky Mode'] then
+                Ordo.Locals.Aim_Targ = Ordo:ChoosePriority("Aimbot")
+            end
+            --
+            if getgenv().Ordium["Aimbot"].MouseHold.Enabled and not Ordo.Locals.Aimbot_Held then 
+                return 
+            end  
+            --
+            if not Ordo.Locals.Aimbot then
+                return
+            end
+            --
+            if spinning then return end;
+            --
+            local GameIndex = Ordo:GetContext()[GameId]
+            if not GameIndex then return end;
+            --
+            local Priority = Ordo.Locals.Aim_Targ
+            local Numbers = getgenv().Ordium["Aimbot"].Prediction.Prediction
+            local Predict = getgenv().Ordium["Aimbot"].Prediction.Enabled
+            --
+            local HitBones = getgenv().Ordium["Aimbot"].HitParts['HitBones']
+            local WallCheck = getgenv().Ordium["Aimbot"].Conditions.Wall
+            local KOCheck = getgenv().Ordium["Aimbot"].Conditions.Knocked
+            local GrabCheck = getgenv().Ordium["Aimbot"].Conditions.Grabbed
+            local ForceFieldCheck = getgenv().Ordium["Aimbot"].Conditions.Forcefield
+            local TypingCheck = getgenv().Ordium["Aimbot"].Conditions['Chat Focused']
+            local ToolCheck = getgenv().Ordium["Aimbot"].Conditions['Tool Equipped']
+            local FriendCheck = getgenv().Ordium["Aimbot"].Conditions.Friend
+            local Deadzone = getgenv().Ordium["Aimbot"].Deadzone
+            --
+            if Priority and Priority.Character then
+                local Object, Humanoid, RootPart = Ordo:IsClient(Priority)
+                if (Object and Humanoid and RootPart) then
+                    local A = true
+                    if A then
+                        if (WallCheck and not (Ordo:ObjectCheck(RootPart, Ordo:LocalOrigin("Camera"), {Ordo:GetCharacter(Client)}))) then return end
+                        if (KOCheck and not (GameIndex.Knocked(Priority))) then return end;
+                        if (GrabCheck and not (GameIndex.Grabbed(Priority))) then return end;
+                        if (ForceFieldCheck and (Object:FindFirstChildOfClass("ForceField"))) then return end;
+                        if (TypingCheck and (UserInputService:GetFocusedTextBox())) then return end;
+                        if (ToolCheck and not (Client.Character:FindFirstChildWhichIsA("Tool"))) then return end;
+                        if (FriendCheck and not (Ordo:IsFriendly(Priority))) then return end;
+                        if (Deadzone and not (Ordo:Deadzone(Priority))) then return end;
+                        --
+                        local PlayerState = Humanoid:GetState()
+                        --
+                        local Smoothness
+                        local Stickiness
+                        --
+                        if (Ordo:IsJumped(PlayerState, Priority)) then
+                            Smoothness = getgenv().Ordium["Aimbot"].Smoothness.Y / 1000
+                            Stickiness = getgenv().Ordium["Aimbot"].Smoothness.StickynessY
+                        else
+                            Smoothness = getgenv().Ordium["Aimbot"].Smoothness.X / 1000
+                            Stickiness = getgenv().Ordium["Aimbot"].Smoothness.StickynessX
+                        end
+                        --
+                        local AntiFloor = getgenv().Ordium["Aimbot"].AntiFloor
+                        --
+                        local Prediction = Predict and Vector3new(Numbers[1], AntiFloor or Numbers[2], Numbers[3]) or Vector3new(0, 0, 0)
+                        local RandomizeNums = getgenv().Ordium["Aimbot"].Readjustment.Readjustment
+                        local Randomize = getgenv().Ordium["Aimbot"].Readjustment.Enabled and Vector3new(
+                            MRandom(-RandomizeNums[1], RandomizeNums[1]),
+                            MRandom(-RandomizeNums[2], RandomizeNums[2]),
+                            MRandom(-RandomizeNums[3], RandomizeNums[3])
+                        ) * 0.1 or Vector3new(0, 0, 0)
+                        --
+                        local Hit = Ordo:GetPart(Priority, HitBones)
+                        --
+                        local Velocity = Math.RebuildVelocity(getgenv().Ordium['Aimbot'].Prediction['Velocity Type'], Ordo:IsAntiAimed(Priority), {
+                            Type = "Abstract",
+                            Object = RootPart
+                        })
+                        --
+                        local Position = Hit.Position + (Velocity * Prediction) + Randomize
+                        local ControlOne = CFrame.new(Camera.CFrame.p, Position)
+                        local ControlTwo = Camera.CFrame:Lerp(ControlOne, Smoothness)
+                        --
+                        local Type = "Camera"
+                        if (Type == "Camera") then
+                            Camera.CFrame = ControlTwo
+                        --[[elseif (getgenv().Ordium["Aimbot"].Type == "Mouse") then
+                            local Screen, Visible = Camera:WorldToViewportPoint(Position)
+                            --
+                            if Visible then
+                                Ordo:MouseMove(Screen, getgenv().Ordium)
+                            end]]
+                        end
+                    end
+                end
+            end
+        end  
+        --
+        function Ordo:ToolConnection()
+            if not getgenv().Ordium["Silent Aim"].Enabled[1] then return end
+            if not Ordo.Locals.Silent then
+                return
+            end
+            --
+            local GameIndex = Ordo:GetContext()[GameId]
+            if not GameIndex then return end;
+            --
+            local CurrentMode = getgenv().Ordium["Silent Aim"]['Target Mode']
+            --
+            if getgenv().Ordium["Silent Aim"]['Sticky Mode'] then
+                if CurrentMode == "Target" and getgenv().Ordium["Silent Aim"]['Target Sync'] then
+                    Ordo.Locals.Silent_Targ = Ordo.Locals.Aim_Targ
+                elseif CurrentMode == "FOV" then
+                    Ordo.Locals.Silent_Targ = Ordo:ChoosePriority("Silent")
+                end
+            end
+            --
+            local WallCheck = getgenv().Ordium["Silent Aim"].Conditions['Wall']
+            local KOCheck = getgenv().Ordium["Silent Aim"].Conditions['Knocked']
+            local GrabCheck = getgenv().Ordium["Silent Aim"].Conditions['Grabbed']
+            local ForceFieldCheck = getgenv().Ordium["Silent Aim"].Conditions['Forcefield']
+            local FriendCheck = getgenv().Ordium["Silent Aim"].Conditions['Friend']
+            --
+            local PlayerSilent = Ordo.Locals.Silent_Targ
+            --
+            if PlayerSilent and PlayerSilent.Character then
+                local Object, Humanoid, RootPart = Ordo:IsClient(PlayerSilent)
+                if (WallCheck and not (Ordo:ObjectCheck(RootPart, Ordo:LocalOrigin("Camera"), {Ordo:GetCharacter(Client)}))) then return end
+                if (KOCheck and not (GameIndex.Knocked(PlayerSilent))) then return end
+                if (GrabCheck and not (GameIndex.Grabbed(PlayerSilent))) then return end
+                if (ForceFieldCheck and (Object:FindFirstChildOfClass("ForceField"))) then return end
+                if (FriendCheck and not (Ordo:IsFriendly(PlayerSilent))) then return end
+                if not (Ordo:GetHitChance(getgenv().Ordium["Silent Aim"].HitChance)) then return end
+                --
+                local Screen, Visible = Camera:WorldToScreenPoint(PlayerSilent.Character[tostring(Ordo:GetNearestBone(PlayerSilent.Character))].Position)
+                local DistanceX = Abs(Screen.X - Mouse.X)
+                local DistanceY = Abs(Screen.Y - Mouse.Y)
+                local Box = Ordo.Locals.BoxFOV_Size
+                local RadiusX = getgenv().Ordium["Silent Aim"]['Hit Mode'] == "Box" and Box.X / 2 or SilentFOVCircle.Radius
+                local RadiusY = getgenv().Ordium["Silent Aim"]['Hit Mode'] == "Box" and Box.Y / 2 or SilentFOVCircle.Radius
+                local Base = getgenv().Ordium["Silent Aim"].HitParts['Hit Type']
+                local Formula = "*"
+                local AntiFloor = getgenv().Ordium["Silent Aim"].AntiFloor and 0.011 
+                local Prediction = getgenv().Ordium["Silent Aim"].Prediction.Prediction
+                local Offset = Vector3new(Prediction[1], AntiFloor or Prediction[2], Prediction[3])
+                --
+                local Bone = tostring(Ordo:GetPart(PlayerSilent, getgenv().Ordium["Silent Aim"].HitParts['HitBones']))
+                --
+                local PlayerVelocity = Math.RebuildVelocity(getgenv().Ordium['Silent Aim'].Prediction['Velocity Type'], Ordo:IsAntiAimed(PlayerSilent), {
+                    Type = "Abstract",
+                    Object = RootPart
+                })
+                --
+                local Default = Ordo:CalculateDirection(PlayerSilent.Character[Bone].CFrame, PlayerVelocity, Offset, Formula)
+                local ClosestPart = tostring(Ordo:GetNearestBone(PlayerSilent.Character))
+                local ClosestPoint = Ordo:CalculateDirection(Ordo:GetNearestPoint(PlayerSilent.Character[ClosestPart], getgenv().Ordium["Silent Aim"].HitParts['Nearest Point Type']), PlayerVelocity, Offset, Formula)
+                local ClosestPart2 = Ordo:CalculateDirection(Ordo:GetNearestBone(PlayerSilent.Character).CFrame, PlayerVelocity, Offset, Formula)
+                local Hit = 
+                Base == "Nearest Point" and Vector3new(ClosestPoint.X, ClosestPoint.Y, ClosestPoint.Z) or
+                Base == "Nearest Part" and Vector3new(ClosestPart2.X, ClosestPart2.Y, ClosestPart2.Z) or
+                Vector3new(Default.X, Default.Y, Default.Z)   
+                --
+                if (Math:XYRadius(RadiusX, DistanceX, RadiusY, DistanceY) and Visible) then
+                    local Endpoint = Hit
+                    --
+                    local CurvePT = Ordo:Get3DMagnitude(Endpoint) / 10
+                    --
+                    if (getgenv().Ordium["Silent Aim"]['Anti Curve'].Enabled and (CurvePT <= getgenv().Ordium["SILENT_MaxAntiCurveAngle"])) then
+                        return
+                    end
+                    --
+                    local Path = ReplicatedStorage:FindFirstChild(GameIndex.Remote)
+                    local CustomArguments = {
+                        [1] = GameIndex.Argument,
+                        [2] = Endpoint,
+                        [3] = GameIndex.ExtraArgs
+                    }
+                    --
+                    if (GameId == 5611456810 or GameId == 5807321331) then    
+                        CustomArguments[2] = {
+                            ["Camera"] = Endpoint,
+                            ["MousePos"] = Endpoint
+                        }
+                    end
+                    --
+                    Path:FireServer(unpack(CustomArguments))
+                end
+            end
+        end
+        --
+        if not (getgenv().Ordium["Universal"].Enabled) then
+            if (Ordo:GetContext()[GameId].HoodGame) then
+                for i, v in pairs(Client.Backpack:GetChildren()) do
+                    if v:IsA("Tool") and not Ordo.ToolConnections[v] then
+                        Ordo.ToolConnections[v] = v.Activated:Connect(Ordo.ToolConnection)
+                    end
+                end
+                for i, v in pairs(Client.Character:GetChildren()) do
+                    if v:IsA("Tool") and not Ordo.ToolConnections[v] then
+                        Ordo.ToolConnections[v] = v.Activated:Connect(Ordo.ToolConnection)
+                    end
+                end
+                Client.Character.ChildAdded:connect(function(v)
+                    if v:IsA("Tool") and not Ordo.ToolConnections[v] then
+                        Ordo.ToolConnections[v] = v.Activated:Connect(Ordo.ToolConnection)
+                    end
+                end)
+                Client.CharacterAdded:connect(function(v)
+                    for i = 1, # Ordo.ToolConnections, 1 do
+                        Ordo.ToolConnections[i]:Disconnect()
+                        Ordo.ToolConnections[i] = nil
+                    end
+                v.ChildAdded:connect(function(v)
+                    if v:IsA("Tool") and not Ordo.ToolConnections[v] then
+                        Ordo.ToolConnections[v] = v.Activated:Connect(Ordo.ToolConnection)
+                        end
+                    end)
+                end)
+            end
+        end
+    end
+    --
+    --[[function Ordo:Triggerbot()
+        local Triggerbot = getgenv().Ordium["Triggerbot"]
+        if not Triggerbot.Enabled then return end
+    
+        local Locals = Ordo.Bools
+        if not Locals["Triggerbot"] then return end
+    
+        if Triggerbot.Mode == "Hold" and not Locals["Triggerbot_Held"] then return end
+    
+        local Character = Client.Character
+        local CurrentTool = Character:FindFirstChildWhichIsA("Tool")
+        if not CurrentTool or CurrentTool.Name == "[Knife]" or CurrentTool:FindFirstChild("Eat") then return end
+    
+        local Target = Mouse.Target
+        if not Target then 
+            return
+        end
+    
+        local TargetCharacter = Target.Parent
+        if TargetCharacter and TargetCharacter:IsA("Model") then
+            local Humanoid = TargetCharacter:FindFirstChild("Humanoid") or false
+            local LowerTorso = TargetCharacter:FindFirstChild("LowerTorso") or false
+    
+            if Humanoid and LowerTorso then
+                local closestPartName = tostring(Ordo:GetNearestBone(TargetCharacter))
+                local closestPart = TargetCharacter[closestPartName]
+                local targetVelocity = closestPart.Velocity
+                local prediction = Triggerbot.Prediction
+    
+                local TargetPosition = closestPart.Position + targetVelocity * prediction
+       
+    
+                local MouseVector = Mouse.Hit.p
+    
+                local function Sensitivity(v1, v2)
+                    local tolerance = Triggerbot.Sensitivity
+                    return Abs(v1.X - v2.X) < tolerance and Abs(v1.Y - v2.Y) < tolerance and Abs(v1.Z - v2.Z) < tolerance
+                end
+    
+                if Sensitivity(MouseVector, TargetPosition) then
+                    if CurrentTool then
+                        wait(Triggerbot.Cooldown)
+                        CurrentTool:Activate()
+                    end
+                end
+            end
+        end
+    end ]]
+
+    function Ordo:Triggerbot()
+        local Triggerbot = getgenv().Ordium["Triggerbot"]
+        if not Triggerbot.Enabled then return end
+        local GameIndex = Ordo:GetContext()[GameId]
+        local Locals = Ordo.Locals
+        if not Locals["Triggerbot"] then return end
+    
+        if Triggerbot.Mode == "Hold" and not Locals["Triggerbot_Held"] then return end
+    
+        local Character = Client.Character
+        local CurrentTool = Character:FindFirstChildWhichIsA("Tool")
+        
+        -- Ensure CurrentTool is valid and equipped
+        if not CurrentTool or CurrentTool.Name == "[Knife]" or CurrentTool:FindFirstChild("Eat") then
+            return
+        end
+        
+        if not CurrentTool:IsDescendantOf(Character) then
+            return
+        end
+    
+        local Target = Ordo.Locals.Silent_Targ --Ordo:ChoosePriority("Triggerbot")
+        if not Target then 
+            return
+        end
+    
+        local TargetCharacter = Target.Character
+        if TargetCharacter then
+            if not (GameIndex.Knocked(Target)) then return end
+            if TargetCharacter:FindFirstChildOfClass("ForceField") then return end
+    
+            local e, t = true, true
+            if e and t then
+                local closestPartName = tostring(Ordo:GetNearestBone(TargetCharacter))
+                local closestPart = TargetCharacter[closestPartName]
+                local targetVelocity = Math.RebuildVelocity(getgenv().Ordium['Silent Aim'].Prediction['Velocity Type'], Ordo:IsAntiAimed(Target), {
+                    Type = "Abstract",
+                    Object = closestPart
+                })
+           
+                local AI = Triggerbot['Auto Sync']
+                local prediction; --Triggerbot.Prediction
+                
+                local Priority = Target
+                --
+                local AvgDelay = AI['Average Delay'] 
+                local MaxDelay = AI['Max Delay'] 
+                --
+                local AvgVelocity = AI['Average Speed'] 
+                local VelocityCap = AI['Max Speed'] 
+                --
+                local AvgRange = AI['Average Range'] 
+                local MaxRange = AI['Max Delay'] 
+                --
+                if (AI.Enabled) then
+                    local Object, Humanoid, RootPart = Ordo:IsClient(Priority)
+                    local Velocity_Div = Vector3new(RootPart.Velocity.X, RootPart.Velocity.Y / 5, RootPart.Velocity.Z)
+                    local Magnitude = Velocity_Div.Magnitude
+                    local Distance = (RootPart.Position - Camera.CFrame.Position).Magnitude
+                    -- Normalize
+                    local NormalizedDelay = Ping / MaxDelay
+                    local NormalizedVelocity = Magnitude / VelocityCap
+                    local NormalizedRange = Distance / MaxRange
+                    --
+                    local Combined = NormalizedDelay + NormalizedVelocity + NormalizedRange
+                    local DelayWeight = NormalizedDelay / Combined
+                    local VelocityWeight = NormalizedVelocity / Combined
+                    local RangeWeight = NormalizedRange / Combined
+                    -- 
+                    local BasePrediction = (AvgDelay + AvgVelocity / 1000 + AvgRange / 1000) / 3
+                    local Prediction = BasePrediction * (DelayWeight + VelocityWeight + RangeWeight)
